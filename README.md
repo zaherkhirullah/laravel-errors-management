@@ -19,7 +19,7 @@ See the [DOCUMENTATION](https://docs.spatie.be/laravel-permission/v3/introductio
 
 ##### Step 1 
 ```
-    composer require hayrullah/error-records
+    composer require hayrullah/laravel-errors-management
  ```
 
 ##### Step 2
