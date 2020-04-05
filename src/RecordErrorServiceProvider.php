@@ -38,7 +38,6 @@ class RecordErrorServiceProvider extends ServiceProvider
     public function boot()
     {
 
-
 //        if (! class_exists('CreateRecordErrorsTable')) {
 //            $this->publishes([
 //                __DIR__.'/../database/migrations/create_record_errors_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_record_errors_table.php'),
