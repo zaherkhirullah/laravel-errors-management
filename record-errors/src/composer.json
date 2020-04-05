@@ -1,0 +1,28 @@
+{
+    "name": "hayrullah/error-records",
+    "description": "Record links which redirect 404 and 500 Errors",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "zahir hayrullah",
+            "email": "z.hayrullah@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "7.2.5",
+        "jeroennoten/laravel-adminlte": "^3.1",
+        "torann/geoip": "^1.2",
+        "laravel/ui": "^2.0",
+        "yajra/laravel-datatables-oracle": "^9.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hayrullah\\RecordErrors\\": "src/"
+        }
+    }
+}
