@@ -15,7 +15,7 @@ ip and  more details about visits.
 
 ## Documentation, Installation, and Usage Instructions
 
-See the [DOCUMENTATION](https://packagest.org/laravel-errors-management/) for detailed installation and usage instructions.
+See the [DOCUMENTATION](https://packagist.org/packages/hayrullah/laravel-errors-management) for detailed installation and usage instructions.
 
 ##### Step 1 
 ```
