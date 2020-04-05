@@ -51,26 +51,21 @@ class RecordErrorServiceProvider extends ServiceProvider
 //        }
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/../views/backend/record_errors', 'RecordErrors');
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+//        $this->loadViewsFrom(__DIR__ . '/../views/backend/record_errors', 'RecordErrors');
+//        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
-        $this->publishes(
-            [
-                __DIR__.'/../config/record_errors.php' => config_path('record_errors.php'),
-          ], 'config');
+        $this->publishes([__DIR__.'/../config/record_errors.php' => config_path('record_errors.php'),], 'config');
+
+        $this->publishes([__DIR__.'/../views/backend/record_errors/*.php' => resource_path('/views/record_errors/*.php'),], 'views');
 
         if (! class_exists('CreateVisitsTable')) {
-            $this->publishes([
-                __DIR__.'/../../database/migrations/2020_04_105051_create_visits_table.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_visits_table.php'),
-            ], 'migrations');
+            $this->publishes([__DIR__.'/../../database/migrations/2020_04_105051_create_visits_table.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_visits_table.php'),], 'migrations');
         }
+
         if (! class_exists('CreateRecordErrorsTable')) {
-            $this->publishes([
-                __DIR__.'/../../database/migrations/2020_04_105050_create_record_errors_table.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_record_errors_table.php'),
-            ], 'migrations');
+            $this->publishes([__DIR__.'/../../database/migrations/2020_04_105050_create_record_errors_table.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_record_errors_table.php'),], 'migrations');
         }
-            $this->publishes([
-                __DIR__.'/../RecordErrorServiceProvider.php' => app_path('/Providers/RecordErrorServiceProvider.php'),
-            ], 'providers');
+
+        $this->publishes([__DIR__.'/../RecordErrorServiceProvider.php' => app_path('/Providers/RecordErrorServiceProvider.php'),], 'providers');
     }
 }
