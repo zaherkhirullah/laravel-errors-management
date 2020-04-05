@@ -24,5 +24,12 @@
         "psr-4": {
             "Hayrullah\\RecordErrors\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hayrullah\\RecordErrors\\RecordErrorServiceProvider"
+            ]
+        }
     }
 }
