@@ -1,6 +1,6 @@
 {
-    "name": "hayrullah/error-records",
-    "description": "Record links which redirect 404 and 500 Errors",
+    "name": "hayrullah/laravel-errors-management",
+    "description": "404/500 Error record links and management Errors",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
