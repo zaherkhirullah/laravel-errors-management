@@ -14,10 +14,10 @@
         "php": "7.2.5",
         "jeroennoten/laravel-adminlte": "^3.1",
         "torann/geoip": "^1.2",
-        "laravel/ui": "^2.0",
         "yajra/laravel-datatables-oracle": "^9.7"
     },
     "require-dev": {
+        "laravel/ui": "^2.0",
         "phpunit/phpunit": "9.0.*"
     },
     "autoload": {
