@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Hayrullah\\RecordErrors\\RecordErrorServiceProvider"
+                "Hayrullah\\RecordErrors\\Providers\\RecordErrorServiceProvider"
             ]
         }
     }
