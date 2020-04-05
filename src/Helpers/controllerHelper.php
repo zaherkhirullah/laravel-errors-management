@@ -654,15 +654,16 @@ if (!function_exists('getActionColumn')) {
 if (!function_exists('list_of_error_codes')) {
     function list_of_error_codes()
     {
-        return [
-            ['code' => 401, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-warning', 'color' => 'warning'],
-            ['code' => 403, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-blue', 'color' => 'blue'],
-            ['code' => 404, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
-            ['code' => 419, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-secondary', 'color' => 'secondary'],
-            ['code' => 429, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-dark', 'color' => 'dark'],
-            ['code' => 500, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
-            ['code' => 503, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-info', 'color' => 'info'],
-        ];
+        return config('record_errors.codes');
+//        return [
+//            ['code' => 401, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-warning', 'color' => 'warning'],
+//            ['code' => 403, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-blue', 'color' => 'blue'],
+//            ['code' => 404, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
+//            ['code' => 419, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-secondary', 'color' => 'secondary'],
+//            ['code' => 429, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-dark', 'color' => 'dark'],
+//            ['code' => 500, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
+//            ['code' => 503, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-info', 'color' => 'info'],
+//        ];
     }
 }
 /*---------------------------------- </> --------------------------------*/

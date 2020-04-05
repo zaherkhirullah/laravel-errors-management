@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Hayrullah\RecordErrors\Models;
 
-use App\Traits\GlobalFunctions;
-use App\Traits\HasVisits;
+use Hayrullah\RecordErrors\Traits\GlobalFunctions;
+use Hayrullah\RecordErrors\Traits\HasVisits;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -25,11 +25,14 @@ class RecordError extends Model
     }
 
     /**
+     * @param int $code
      * @return string
      */
     public static function showVisits($code=404)
     {
-        return displayVisitsCount(count(self::Type($code)->visits()));
+        $typeVisits  = self::Type($code)->visits();
+        $visits = count($typeVisits);
+        return displayVisitsCount($visits);
     }
 
     /**

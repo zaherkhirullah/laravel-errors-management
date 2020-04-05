@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: a.alkari
- * Date: 8/31/2019
- * Time: 1:46 PM
- */
 
-namespace App\Traits;
+namespace Hayrullah\RecordErrors\Traits;
 
 
-use App\Visit;
+use Hayrullah\RecordErrors\Models\Visit;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 trait HasVisits

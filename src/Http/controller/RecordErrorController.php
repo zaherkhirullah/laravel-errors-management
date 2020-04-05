@@ -4,7 +4,7 @@ namespace Hayrullah\RecordErrors\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use App\RecordError;
+use Hayrullah\RecordErrors\Models\RecordError;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
@@ -70,7 +70,8 @@ class RecordErrorController extends Controller
             });
             $datatable->addColumn('last_visit', function ($row) {
                 $last_visit = $row->visits()->latest()->first();
-                return "<p class='text-center align-middle'><span> $last_visit->created_at </span></p>";
+                $last_visit = optional($last_visit)->created_at;
+                return "<p class='text-center align-middle'><span> $last_visit </span></p>";
             });
             $datatable->addColumn('action', function ($row) use ($code, $user_can_delete, $user_can_restore, $user_can_force_delete, $trash) {
                 $url = url("$row->bPrefixPath/$code/$row->id");

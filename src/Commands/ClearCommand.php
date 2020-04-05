@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Hayrullah\RecordErrors\Commands;
 
 use Illuminate\Console\Command;
 

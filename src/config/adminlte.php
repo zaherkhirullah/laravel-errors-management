@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Errors Management',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Errors </b>Management',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'Errors Management',
 
     /*
     |--------------------------------------------------------------------------
@@ -215,77 +215,70 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
+        ], [
+            'text' => 'Dashboard',
+            'url' => 'admin/error-management',
+            'icon' => 'fas fa-tachometer-alt',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+            'text' => 'Error Management',
+            'url' => '#',
+            'icon' => 'fas fa-fw fa-exclamation-circle',
+//            'submenu' => list_of_menu_error_items()
+            'submenu' =>
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
+                    [
+                        'text' => '401 Error Records ',
+                        'url' => 'admin/error-records/401',
+                        'icon_color' => 'success',
+                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
+//                    'can' => 'show-error-records'
                     ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
+                    [
+                        'text' => '403 Error Records ',
+                        'url' => 'admin/error-records/403',
+                        'icon_color' => 'success',
+                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
+//                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text' => '404 Error Records ',
+                        'url' => 'admin/error-records/404',
+                        'icon_color' => 'success',
+                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
+//                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text' => '419 Error Records ',
+                        'url' => 'admin/error-records/419',
+                        'icon_color' => 'success',
+                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
+//                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text' => '429 Error Records ',
+                        'url' => 'admin/error-records/429',
+                        'icon_color' => 'success',
+                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
+//                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text' => '500 Error Records ',
+                        'url' => 'admin/error-records/500',
+                        'icon_color' => 'success',
+                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
+//                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text' => '503 Error Records ',
+                        'url' => 'admin/error-records/503',
+                        'icon_color' => 'success',
+                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
+//                    'can' => 'show-error-records'
+                    ],
+                ]
         ],
     ],
 
@@ -326,7 +319,7 @@ return [
     'plugins' => [
         [
             'name' => 'Datatables',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -347,7 +340,7 @@ return [
         ],
         [
             'name' => 'Select2',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

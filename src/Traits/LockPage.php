@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Hayrullah\RecordErrors\Traits;
 
 use App\User;
 use Carbon\Carbon;
