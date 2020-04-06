@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\RecordErrors\Models;
+namespace Hayrullah\ErrorManagement\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -14,7 +14,7 @@ class Visit extends Model
     {
         return $this->morphTo();
     }
-    
+
     public static function createVisit($request)
     {
         $visit = new Visit();

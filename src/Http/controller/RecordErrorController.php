@@ -1,10 +1,10 @@
 <?php
 
-namespace Hayrullah\RecordErrors\Http\Controllers;
+namespace Hayrullah\ErrorManagement\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use Hayrullah\RecordErrors\Models\RecordError;
+use Hayrullah\ErrorManagement\Models\RecordError;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
@@ -31,7 +31,7 @@ class RecordErrorController extends Controller
      */
     public function dashboard()
     {
-        return \view("RecordErrors::dashboard");
+        return  view("ErrorManagement::dashboard");
     }
 
     /**
@@ -44,7 +44,7 @@ class RecordErrorController extends Controller
     public function index(Request $request, $code, $trash = null)
     {
         if (!check_user_authorize($this->permissionName, $trash)) {
-            return view('RecordError::errors.401');
+            return view('ErrorManagement::errors.401');
         }
         $user_can_delete = is_can_delete($this->permissionName);
         $user_can_restore = is_can_restore($this->permissionName);
@@ -104,7 +104,7 @@ class RecordErrorController extends Controller
             ]);
             return $datatable->make(true);
         }
-        return view('RecordErrors::index', compact('code'));
+        return view('ErrorManagement::index', compact('code'));
     }
 
     public function show(Request $request, $code, $id)
@@ -148,7 +148,7 @@ class RecordErrorController extends Controller
                 ->make(true);
         }
         $row = $record;
-        return view('RecordErrors::show', compact('row', 'code'));
+        return view('ErrorManagement::show', compact('row', 'code'));
     }
 
     /**

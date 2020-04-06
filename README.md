@@ -35,8 +35,8 @@ See the [DOCUMENTATION](https://packagist.org/packages/hayrullah/laravel-errors-
 
 ##### Step 3
  ```   
- php artisan vendor:publish "hayrullah\RecordErrors\RecordErrorServiceProvider" --tag=config 
- php artisan vendor:publish "hayrullah\RecordErrors\RecordErrorServiceProvider" --tag=views 
+ php artisan vendor:publish "Hayrullah\ErrorManagement\ErrorManagementProvider" --tag=config 
+ php artisan vendor:publish "Hayrullah\ErrorManagement\ErrorManagementProvider" --tag=views 
  ```
 
 

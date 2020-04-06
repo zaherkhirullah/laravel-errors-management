@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "zahir hayrullah",
-            "email": "z.hayrullah@gmail.com"
+            "email": "info@zaherr.com"
         }
     ],
     "require": {
@@ -22,13 +22,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Hayrullah\\RecordErrors\\": "src/"
+            "Hayrullah\\ErrorManagement\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Hayrullah\\RecordErrors\\Providers\\RecordErrorServiceProvider"
+                "Hayrullah\\ErrorManagement\\Providers\\ErrorManagementProvider"
             ]
         }
     }

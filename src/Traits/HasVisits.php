@@ -1,9 +1,9 @@
 <?php
 
-namespace Hayrullah\RecordErrors\Traits;
+namespace Hayrullah\ErrorManagement\Traits;
 
 
-use Hayrullah\RecordErrors\Models\Visit;
+use Hayrullah\ErrorManagement\Models\Visit;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 trait HasVisits

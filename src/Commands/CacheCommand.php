@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\RecordErrors\Commands;
+namespace Hayrullah\ErrorManagement\Commands;
 
 use Illuminate\Console\Command;
 
@@ -11,7 +11,7 @@ class CacheCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'record_errors:cache';
+    protected $signature = 'error_records:cache';
 
     /**
      * The console command description.

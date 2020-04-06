@@ -1,9 +1,9 @@
 <?php
 
-namespace Hayrullah\RecordErrors\Http\Controllers;
+namespace Hayrullah\ErrorManagement\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Hayrullah\RecordErrors\Models\Visit;
+use Hayrullah\ErrorManagement\Models\Visit;
 use Illuminate\Http\Request;
 
 class VisitController extends Controller

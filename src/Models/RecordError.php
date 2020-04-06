@@ -1,9 +1,9 @@
 <?php
 
-namespace Hayrullah\RecordErrors\Models;
+namespace Hayrullah\ErrorManagement\Models;
 
-use Hayrullah\RecordErrors\Traits\GlobalFunctions;
-use Hayrullah\RecordErrors\Traits\HasVisits;
+use Hayrullah\ErrorManagement\Traits\GlobalFunctions;
+use Hayrullah\ErrorManagement\Traits\HasVisits;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
