@@ -31,7 +31,8 @@ class VisitController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,7 +43,8 @@ class VisitController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Visit  $visit
+     * @param \App\Visit $visit
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Visit $visit)
@@ -53,7 +55,8 @@ class VisitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Visit  $visit
+     * @param \App\Visit $visit
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Visit $visit)
@@ -64,8 +67,9 @@ class VisitController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Visit  $visit
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Visit               $visit
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Visit $visit)
@@ -76,7 +80,8 @@ class VisitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Visit  $visit
+     * @param \App\Visit $visit
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Visit $visit)

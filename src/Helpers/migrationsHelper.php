@@ -1,10 +1,8 @@
 <?php
 /**
- *
  * Author: Zahir Hayrullah
  * create date :  29/03/2020  03:00 PM
- * Last Modified Date: 29/03/2020  03:00 PM
- *
+ * Last Modified Date: 29/03/2020  03:00 PM.
  */
 
 use Illuminate\Database\Schema\Blueprint;
@@ -12,6 +10,7 @@ use Illuminate\Database\Schema\Blueprint;
 if (!function_exists('seo_columns')) {
     /**
      * @param Blueprint $table
+     *
      * @return mixed
      */
     function seo_columns(Blueprint $table)
@@ -27,6 +26,7 @@ if (!function_exists('seo_columns')) {
 if (!function_exists('locked_columns')) {
     /**
      * @param Blueprint $table
+     *
      * @return mixed
      */
     function locked_columns(Blueprint $table)
@@ -40,6 +40,7 @@ if (!function_exists('locked_columns')) {
 if (!function_exists('active_visits_columns')) {
     /**
      * @param Blueprint $table
+     *
      * @return mixed
      */
     function active_visits_columns(Blueprint $table)
@@ -53,6 +54,7 @@ if (!function_exists('active_visits_columns')) {
 if (!function_exists('editor_columns')) {
     /**
      * @param Blueprint $table
+     *
      * @return mixed
      */
     function editor_columns(Blueprint $table)
@@ -67,4 +69,3 @@ if (!function_exists('editor_columns')) {
     }
 }
 /*---------------------------------- </> ----------------------------------*/
-

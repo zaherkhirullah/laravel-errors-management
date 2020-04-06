@@ -2,7 +2,6 @@
 
 namespace Hayrullah\ErrorManagement\Traits;
 
-
 use App\User;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,15 +10,17 @@ trait GlobalFunctions
 {
     /**
      * @param $attr
+     *
      * @return mixed
      */
-    function getAttr($attr)
+    public function getAttr($attr)
     {
         return $this->{$attr.'_'.app()->getLocale()};
     }
 
     /**
      * @param $query
+     *
      * @return mixed
      */
     public function scopeFeatured($query)
@@ -29,36 +30,40 @@ trait GlobalFunctions
 
     /**
      * @param $query
+     *
      * @return mixed
      */
     public function scopeHasTranslate($query)
     {
         $title = 'title_'.app()->getLocale();
+
         return $query->where($title, '!=', '');
     }
 
     /**
      * @param $query
+     *
      * @return mixed
      */
     public function scopeActive($query)
     {
-        return $query->where("active", '=', 1);
+        return $query->where('active', '=', 1);
     }
 
     /**
      * @param $query
+     *
      * @return mixed
      */
     public function scopeNotActive($query)
     {
-        return $query->where("active", '=', 0);
+        return $query->where('active', '=', 0);
     }
 
     /**
      * @return UrlGenerator|string
      */
-    function getFolderPathAttribute()
+    public function getFolderPathAttribute()
     {
         return $this->folderName;
     }
@@ -66,7 +71,7 @@ trait GlobalFunctions
     /**
      * @return UrlGenerator|string
      */
-    function getImagePathAttribute()
+    public function getImagePathAttribute()
     {
         return asset("$this->folderName/$this->image");
 //        return "https://arkanproje.com/$this->folderName/$this->image";
@@ -75,7 +80,7 @@ trait GlobalFunctions
     /**
      * @return UrlGenerator|string
      */
-    function getImagePlaceholderPathAttribute()
+    public function getImagePlaceholderPathAttribute()
     {
         $image = asset('assets/img/lazy.jpg');
         if ($this->image) {
@@ -85,14 +90,14 @@ trait GlobalFunctions
                 $image = asset($file);
             }
         }
+
         return $image;
     }
-
 
     /**
      * @return UrlGenerator|string
      */
-    function getBPrefixPathAttribute()
+    public function getBPrefixPathAttribute()
     {
         return url($this->bPrefix);
     }
@@ -100,7 +105,7 @@ trait GlobalFunctions
     /**
      * @return UrlGenerator|string
      */
-    function getFPrefixPathAttribute()
+    public function getFPrefixPathAttribute()
     {
         return url($this->fPrefix);
     }
@@ -136,5 +141,4 @@ trait GlobalFunctions
     {
         return $this->belongsTo(User::class, 'restored_by');
     }
-
 }
