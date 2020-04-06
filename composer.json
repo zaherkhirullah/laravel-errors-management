@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.2.0",
         "torann/geoip": "^1.2",
         "jeroennoten/laravel-adminlte": "^3.1",
         "yajra/laravel-datatables-oracle": "^9.7"
