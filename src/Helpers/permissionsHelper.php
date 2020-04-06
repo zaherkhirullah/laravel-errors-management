@@ -1,12 +1,9 @@
 <?php
 /**
- *
  * Author: Zahir Hayrullah
  * create date :  29/03/2020  03:00 PM
- * Last Modified Date: 29/03/2020  03:00 PM
- *
+ * Last Modified Date: 29/03/2020  03:00 PM.
  */
-
 if (!function_exists('available_permission_middleware')) {
     /**
      * @return array
@@ -26,6 +23,7 @@ if (!function_exists('check_user_authorize')) {
     /**
      * @param $permissionName
      * @param $trash
+     *
      * @return bool
      */
     function check_user_authorize($permissionName = null, $trash = null)
@@ -38,6 +36,7 @@ if (!function_exists('check_user_authorize')) {
         if (!is_can_show($permissionName) and !is_can_show_all($permissionName)) {
             return false;
         }
+
         return true;
     }
 }
@@ -46,6 +45,7 @@ if (!function_exists('check_user_authorize')) {
 if (!function_exists('is_can_create')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_create($permissionName = null)
@@ -58,6 +58,7 @@ if (!function_exists('is_can_create')) {
 if (!function_exists('is_can_edit')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_edit($permissionName = null)
@@ -70,6 +71,7 @@ if (!function_exists('is_can_edit')) {
 if (!function_exists('is_can_delete')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_delete($permissionName = null)
@@ -82,6 +84,7 @@ if (!function_exists('is_can_delete')) {
 if (!function_exists('is_can_restore')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_restore($permissionName = null)
@@ -94,6 +97,7 @@ if (!function_exists('is_can_restore')) {
 if (!function_exists('is_can_force_delete')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_force_delete($permissionName = null)
@@ -106,6 +110,7 @@ if (!function_exists('is_can_force_delete')) {
 if (!function_exists('is_can_show')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_show($permissionName = null)
@@ -118,6 +123,7 @@ if (!function_exists('is_can_show')) {
 if (!function_exists('is_can_show_all')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_show_all($permissionName = null)
@@ -130,6 +136,7 @@ if (!function_exists('is_can_show_all')) {
 if (!function_exists('is_can_activate')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can_activate($permissionName = null)
@@ -142,18 +149,20 @@ if (!function_exists('is_can_activate')) {
 if (!function_exists('is_can')) {
     /**
      * @param $permissionName
+     *
      * @return bool
      */
     function is_can($permissionName = null)
     {
         $user = get_auth_user();
         $last = substr($permissionName, -1);
-        if ($last == "-") {
+        if ($last == '-') {
             return true;
         }
         if ($user and $user->can($permissionName)) {
             return true;
         }
+
         return false;
     }
 }

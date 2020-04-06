@@ -18,27 +18,29 @@ trait LockPage
         $this->locked_by = auth()->id();
         $this->timestamps = false;
         $this->save();
+
         return true;
     }
 
     /**
      * @return bool
      */
-    function is_locked()
+    public function is_locked()
     {
         //  dd($this->locked_at,$this->locked_by);
-        if($this->locked_at == null){
+        if ($this->locked_at == null) {
             return false;
         }
-        if($this->locked_by == auth()->id()){
+        if ($this->locked_by == auth()->id()) {
             return false;
         }
         $now = Carbon::now();
         $locked_to = Carbon::parse($this->locked_at);
         $totalDuration = $now->diffInSeconds($locked_to);
-        if($totalDuration > 10){
+        if ($totalDuration > 10) {
             return false;
         }
+
         return true;
     }
 
@@ -49,6 +51,4 @@ trait LockPage
     {
         return $this->belongsTo(User::class, 'locked_by');
     }
-
-
 }

@@ -4,7 +4,6 @@
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-
 if (!function_exists('version')) {
 
     /**
@@ -20,10 +19,9 @@ if (!function_exists('version')) {
 /*---------------------------------- </> ----------------------------------*/
 
 if (!function_exists('asset_v')) {
-
     function asset_v($path, $prefix = 'v')
     {
-        return asset($path) . "?{$prefix}=" . version(public_path($path));
+        return asset($path)."?{$prefix}=".version(public_path($path));
     }
 }
 /*---------------------------------- </> ----------------------------------*/
@@ -48,6 +46,7 @@ if (!function_exists('store_file')) {
     /**
      * @param $path
      * @param $file
+     *
      * @return string
      */
     function store_file($path, $file)
@@ -56,9 +55,9 @@ if (!function_exists('store_file')) {
         $extension = $file->getClientOriginalExtension();
         // filename to store
         // time +_+ 00 + XXX + 000 + x + 0000 = // time_00XXX000x0000.png
-        $hash = md5(time()) . '_' . rand(10, 99) . Str::random(3) . rand(100, 999) . chr(rand(65, 90)) . rand(1000, 9999);
+        $hash = md5(time()).'_'.rand(10, 99).Str::random(3).rand(100, 999).chr(rand(65, 90)).rand(1000, 9999);
 
-        $filename = $hash . '.' . $extension;
+        $filename = $hash.'.'.$extension;
 
         $file->move($path, $filename);
 
@@ -69,10 +68,11 @@ if (!function_exists('store_file')) {
 
 if (!function_exists('uploadImage')) {
     /**
-     * @param        $request
-     * @param        $field_name
-     * @param        $folder
+     * @param      $request
+     * @param      $field_name
+     * @param      $folder
      * @param null $old_image
+     *
      * @return string
      */
     function uploadImage($request, $field_name, $folder, $old_image = null)
@@ -99,6 +99,7 @@ if (!function_exists('uploadImages')) {
      * @param $request
      * @param $field_name
      * @param $folder
+     *
      * @return array
      */
     function uploadImages($request, $field_name, $folder)
@@ -120,11 +121,12 @@ if (!function_exists('uploadImages')) {
 
 if (!function_exists('attachFiles')) {
     /**
-     * @param        $request
-     * @param        $field_name
-     * @param        $folder
+     * @param      $request
+     * @param      $field_name
+     * @param      $folder
      * @param null $row
      * @param null $type
+     *
      * @return array
      */
     function attachFiles($request, $field_name, $folder, $row = null)
@@ -147,6 +149,7 @@ if (!function_exists('attachFiles')) {
 
             $arrFileNames[] = saveAttachments($request, $row, $original_name, $storage_name, $folder, $size, $type);
         }
+
         return $arrFileNames;
     }
 }
@@ -168,6 +171,7 @@ if (!function_exists('saveAttachments')) {
             $file->attachable_type = $request->attachable_type;
             $file->save();
         }
+
         return $file;
     }
 }
@@ -175,7 +179,7 @@ if (!function_exists('saveAttachments')) {
 
 if (!function_exists('unlinkFile')) {
     /**
-     * for delete file from directory
+     * for delete file from directory.
      *
      * @param $fileName ( obj->file )
      * @param $folderName ('uploads/folderName')
@@ -184,7 +188,7 @@ if (!function_exists('unlinkFile')) {
     {
         // get file source
         if ($fileName && $fileName != '') {
-            $old = public_path($folderName . '/' . $fileName);
+            $old = public_path($folderName.'/'.$fileName);
             if (File::exists($old)) {
                 // unlink or remove previous image from folder
                 unlink($old);
@@ -199,6 +203,7 @@ if (!function_exists('uploadFromTiny')) {
      * @param $request
      * @param string $field_name
      * @param $folder
+     *
      * @return mixed
      */
     function uploadFromTiny($request, $field_name, $folder)
@@ -210,7 +215,7 @@ if (!function_exists('uploadFromTiny')) {
 
             $path = getFolderPath($folder);
 
-            $hash = 'image_' . time() . '_' . $file->hashName();
+            $hash = 'image_'.time().'_'.$file->hashName();
 
             $filename = $file->move($path, $hash);
 

@@ -9,14 +9,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RecordError extends Model
 {
-    use GlobalFunctions, SoftDeletes;
+    use GlobalFunctions;
+    use SoftDeletes;
     use HasVisits;
 
-    protected $bPrefix = "admin/error-records";
+    protected $bPrefix = 'admin/error-records';
 
     /**
      * @param $query
      * @param $code
+     *
      * @return mixed
      */
     public function scopeType($query, $code)
@@ -26,12 +28,14 @@ class RecordError extends Model
 
     /**
      * @param int $code
+     *
      * @return string
      */
-    public static function showVisits($code=404)
+    public static function showVisits($code = 404)
     {
-        $typeVisits  = self::Type($code)->visits();
+        $typeVisits = self::Type($code)->visits();
         $visits = count($typeVisits);
+
         return displayVisitsCount($visits);
     }
 

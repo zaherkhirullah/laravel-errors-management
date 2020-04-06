@@ -37,7 +37,7 @@ class ClearCommand extends Command
      */
     public function handle()
     {
-        $this->call("cache:clear");
+        $this->call('cache:clear');
         $this->call('config:clear');
         $this->call('event:clear');
         $this->call('route:clear');

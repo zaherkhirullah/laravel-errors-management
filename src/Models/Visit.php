@@ -17,7 +17,7 @@ class Visit extends Model
 
     public static function createVisit($request)
     {
-        $visit = new Visit();
+        $visit = new self();
         $visit->previous = $request->previous;
 
         $geo = GeoIP($request);
@@ -36,7 +36,7 @@ class Visit extends Model
         $visit->timezone = $geo->timezone;
         $visit->continent = $geo->continent;
         $visit->currency = $geo->currency;
-        $details = @json_decode(@file_get_contents("http://ipinfo.io/" . $geo->ip));
+        $details = @json_decode(@file_get_contents('http://ipinfo.io/'.$geo->ip));
         // Get Full Src
 //                $src = $this->getFullSrc($request['full_src']);
 //                $visit->src = $src;
@@ -53,8 +53,7 @@ class Visit extends Model
         $visit->placement = getItemIfExists($params, 'placement');
         $visit->ad_position = getItemIfExists($params, 'adposition');
         $visit->match_type = getItemIfExists($params, 'matchtype');
+
         return $visit;
     }
-
-
 }

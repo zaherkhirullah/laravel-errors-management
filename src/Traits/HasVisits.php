@@ -2,7 +2,6 @@
 
 namespace Hayrullah\ErrorManagement\Traits;
 
-
 use Hayrullah\ErrorManagement\Models\Visit;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
