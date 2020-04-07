@@ -10,10 +10,10 @@ class ErrorsManagementProvider extends ServiceProvider
 {
 
 
-    protected $CONFIG_PATH = "config/";
-    protected $ROUTES_PATH = "routes/";
-    protected $RESOURCE_PATH = "resources/";
-    protected $DATABASE_PATH = "database/";
+    protected $CONFIG_PATH = 'config/';
+    protected $ROUTES_PATH = 'routes/';
+    protected $RESOURCE_PATH = 'resources/';
+    protected $DATABASE_PATH = 'database/';
 
     /**
      * Register services.
