@@ -8,8 +8,6 @@ use Illuminate\View\Compilers\BladeCompiler;
 
 class ErrorsManagementProvider extends ServiceProvider
 {
-
-
     protected $CONFIG_PATH = 'config/';
     protected $ROUTES_PATH = 'routes/';
     protected $RESOURCE_PATH = 'resources/';
@@ -81,7 +79,6 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         $migrationsPath = $this->packagePath($this->DATABASE_PATH.'migrations');
         $this->loadMigrationsFrom($migrationsPath);
-
     }
 
     protected function registerModels()
@@ -202,5 +199,4 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         return __DIR__."/$path";
     }
-
 }
