@@ -83,8 +83,8 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
             $this->publishes(
-                [__DIR__.'/../config/record_errors.php' => config_path('record_errors.php')]
-                , 'config');
+                [__DIR__.'/../config/record_errors.php' => config_path('record_errors.php')],
+                'config');
 
             $timestamp = date('Y_m_d_His', time());
             if (!class_exists('CreateRecordErrorsTable')) {
@@ -95,8 +95,8 @@ class ErrorsManagementProvider extends ServiceProvider
 
             if (!class_exists('CreateVisitsTable')) {
                 $this->publishes(
-                    [__DIR__.'/../../database/migrations/2020_04_105051_create_visits_table.php' => database_path("migrations/{$timestamp}_create_visits_table.php")]
-                    , 'migrations');
+                    [__DIR__.'/../../database/migrations/2020_04_105051_create_visits_table.php' => database_path("migrations/{$timestamp}_create_visits_table.php")],
+                    'migrations');
             }
 
             $this->publishes([
