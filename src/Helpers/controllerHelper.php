@@ -579,12 +579,12 @@ if (!function_exists('activeRecordButton')) {
         if (request()->has('active') and (request()->get('active') === 'false')) {
             $href = url("/admin/{$href}");
             $title = $title ?? __('active_records');
-            $className = $calssName ?? 'btn-outline-info';
+            $className = $className ?? 'btn-outline-info';
             $icon = 'fa-fw fa-check-circle';
         } else {
             $href = url("/admin/{$href}?active=false");
             $title = $title ?? __('inactive_records');
-            $className = $calssName ?? 'btn-warning';
+            $className = $className ?? 'btn-warning';
             $icon = 'fa-fw fa-times-circle';
         }
         if (!is_can_show($permissionName) and !is_can_show_all($permissionName)) {
@@ -683,7 +683,7 @@ if (!function_exists('viewOrError')) {
 if (!function_exists('getActionColumn')) {
     function getActionColumn($datatable, $can_edit, $can_delete, $can_restore, $can_force_delete, $trash)
     {
-        $datatable->addColumn('action', function ($row) use ($can_edit, $can_delete, $can_restore, $can_force_delete, $trash) {
+        $datatable->addColumn('action', function($row) use ($can_edit, $can_delete, $can_restore, $can_force_delete, $trash) {
             if ($trash) {
                 return trashActionLinks($row, $can_restore, $can_force_delete);
             } else {

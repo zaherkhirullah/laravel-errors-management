@@ -45,7 +45,7 @@ class RecordError extends Model
     protected static function boot()
     {
         parent::boot();
-        static::deleting(function ($row) {
+        static::deleting(function($row) {
             $row->deleted_by = auth()->id();
             $row->timestamps = false;
             $row->save();
@@ -53,10 +53,10 @@ class RecordError extends Model
                 // Here Write What you want make on delete
             }
         });
-        static::restoring(function ($row) {
+        static::restoring(function($row) {
             $row->timestamps = false;
         });
-        static::saved(function ($row) {
+        static::saved(function($row) {
         });
     }
 }
