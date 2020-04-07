@@ -232,17 +232,17 @@ class RecordErrorController extends Controller
     {
         $row = RecordError::find($id);
         if (!$row) {
+
             return response()->json('The item not found', 404);
         }
-        if (!$request->withItems) {
-            // get all rows in the same link and delete all of theme
-            return delete_record($row, $this->permissionName);
-        }
         if ($request->withItems == true) {
+            // get all rows in the same link and delete all of theme
             RecordError::where('link', $row->link)->delete();
+
+            return response()->json('The items has been "deleted" successfully', 200);
         }
 
-        return response()->json('The items has been "deleted" successfully', 200);
+        return delete_record($row, $this->permissionName);
     }
 
     /**
@@ -257,15 +257,16 @@ class RecordErrorController extends Controller
         if (!$row) {
             return response()->json('The item not found', 404);
         }
-        if (!$request->withItems) {
-            // get all rows in the same link and delete all of theme
-            return restore_record($row, $this->permissionName);
-        }
         if ($request->withItems == true) {
+            // get all rows in the same link and delete all of theme
             RecordError::onlyTrashed()->where('link', $row->link)->restore();
+
+            return response()->json('The items has been "restored" successfully', 200);
         }
 
-        return response()->json('The items has been "restored" successfully', 200);
+        // get all rows in the same link and delete all of theme
+        return restore_record($row, $this->permissionName);
+
     }
 
     /**
@@ -280,15 +281,15 @@ class RecordErrorController extends Controller
         if (!$row) {
             return response()->json('The item not found', 404);
         }
-        if (!$request->withItems) {
-            // get all rows in the same link and delete all of theme
-            return force_delete_record($row, $this->permissionName);
-        }
+
         if ($request->withItems == true) {
+            // get all rows in the same link and delete all of theme
             RecordError::onlyTrashed()->where('link', $row->link)->forceDelete();
+
+            return response()->json('The items has been "force Deleted" successfully', 200);
         }
 
-        return response()->json('The items has been "force Deleted" successfully', 200);
+        return force_delete_record($row, $this->permissionName);
     }
 
     /**
@@ -299,13 +300,7 @@ class RecordErrorController extends Controller
     private function allowed_code($code)
     {
         $codes = [
-            '401',
-            '403',
-            '404',
-            '419',
-            '429',
-            '500',
-            '503',
+            '401', '403', '404', '419', '429', '500', '503',
         ];
         if (in_array($code, $codes)) {
             return true;
