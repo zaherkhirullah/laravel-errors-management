@@ -17,25 +17,25 @@ function __(selector) {
         },
         attr: (name, value) => {
             if (value == null)
-                self.element.getAttribute(name)
+                self.element.getAttribute(name);
             else
                 self.element.setAttribute(name, value)
         },
         error: (class_name) => {
             if (class_name == null)
-                self.element.style.color = "red"
+                self.element.style.color = "red";
             else
                 self.element.addClass(class_name)
         }
         ,
         success: (class_name) => {
             if (class_name == null)
-                self.element.style.color = "green"
+                self.element.style.color = "green";
             else
                 self.element.addClass(class_name)
         },
         turkishToEnglish: (value) => {
-            if (self.element != null && value==null) {
+            if (self.element != null && value == null) {
                 // value = self.element.textContent;
                 self.element.textContent = self.element.textContent.replace('Ğ', 'g')
                     .replace('Ü', 'u')
@@ -51,7 +51,7 @@ function __(selector) {
                     .replace('ö', 'o')
                     .replace('ç', 'c')
                     .replace('ç', 'c');
-            }else if(value!=null){
+            } else if (value != null) {
 
 
             }
@@ -75,11 +75,10 @@ function __(selector) {
 }
 
 
-
 // Submit Form Functions
 //=======================================================================
 function submitForm(_url, _formId = null, _data = null) {
-    if (_formId == null) _formId = '#my_form'
+    if (_formId == null) _formId = '#my_form';
     let modal_id = '#MyModal';
     let table_id = '#_table';
     if (_data == null) _data = $(_formId).serialize();
@@ -678,7 +677,7 @@ function PreviewImage(input, _showId) {
         reader.onload = function (e) {
             $(_showId).attr('src', e.target.result);
 
-        }
+        };
         reader.readAsDataURL(input.files[0]);
     } else {
         $(_showId).attr('src', '');
@@ -692,7 +691,7 @@ function jsLangSymbols() {
         'en',
         'tr',
         'fa',
-    ]
+    ];
     return arr;
 }
 
@@ -731,7 +730,7 @@ function turkishtoEnglish(val) {
         .replace('ı', 'i')
         .replace('ö', 'o')
         .replace('ç', 'c');
-};
+}
 // $(document).ready(function () {
 //     $('[data-toggle="tooltip"]').tooltip();
 //

@@ -23,7 +23,7 @@ if (!function_exists('get_auth_user')) {
 /*---------------------------------- </> --------------------------------*/
 if (!function_exists('user_avatar')) {
     /**
-     * @param null $user
+     * @param  null  $user
      *
      * @return mixed
      */
@@ -36,7 +36,7 @@ if (!function_exists('user_avatar')) {
 
 if (!function_exists('user_roles')) {
     /**
-     * @param null $user
+     * @param  null  $user
      *
      * @return mixed
      */
@@ -77,7 +77,7 @@ if (!function_exists('jsonOutput')) {
     function jsonOutput($error_array, $success_output = null)
     {
         return [
-            'error'   => $error_array,
+            'error' => $error_array,
             'success' => $success_output,
         ];
     }
@@ -88,7 +88,7 @@ if (!function_exists('callAPI')) {
     /**
      * @param      $method
      * @param      $url
-     * @param null $data
+     * @param  null  $data
      *
      * @return bool|string
      */
@@ -220,7 +220,7 @@ if (!function_exists('show_record')) {
      * @param      $modelName
      * @param      $id
      * @param      $permissionName
-     * @param null $with
+     * @param  null  $with
      *
      * @return JsonResponse|void
      */
@@ -260,7 +260,7 @@ if (!function_exists('increment_visits')) {
      * increment visits.
      *
      * @param        $row
-     * @param string $key is $key_visits_slug
+     * @param  string  $key  is $key_visits_slug
      */
     function increment_visits($row, $key = 'page')
     {
@@ -276,8 +276,8 @@ if (!function_exists('increment_visits')) {
 
 if (!function_exists('json_not_found_item')) {
     /**
-     * @param null $item_or_page
-     * @param null $code
+     * @param  null  $item_or_page
+     * @param  null  $code
      *
      * @return JsonResponse
      */
@@ -373,7 +373,7 @@ if (!function_exists('trashInfo')) {
 if (!function_exists('hiddenSm')) {
     /**
      * @param      $data
-     * @param null $className
+     * @param  null  $className
      *
      * @return string
      */
@@ -391,7 +391,7 @@ if (!function_exists('titleLink')) {
      * @param        $prefix
      * @param        $row
      * @param        $can_edit
-     * @param string $attr
+     * @param  string  $attr
      *
      * @return string
      */
@@ -417,8 +417,8 @@ if (!function_exists('titleLink')) {
 if (!function_exists('slugLink')) {
     /**
      * @param        $row
-     * @param string $prefix
-     * @param null   $url
+     * @param  string  $prefix
+     * @param  null  $url
      *
      * @return string
      */
@@ -437,7 +437,7 @@ if (!function_exists('slugLink')) {
 if (!function_exists('actionLinks')) {
     /**
      * @param      $row
-     * @param null $prefix
+     * @param  null  $prefix
      * @param      $user_can_edit
      * @param      $user_can_delete
      *
@@ -568,9 +568,9 @@ if (!function_exists('addTrashButton')) {
 if (!function_exists('activeRecordButton')) {
     /**
      * @param      $permissionName
-     * @param null $href
-     * @param null $params
-     * @param null $className
+     * @param  null  $href
+     * @param  null  $params
+     * @param  null  $className
      *
      * @return string
      */
@@ -626,7 +626,7 @@ if (!function_exists('activeButton')) {
 if (!function_exists('copyBtn')) {
     /**
      * @param      $shorten_link
-     * @param null $className
+     * @param  null  $className
      *
      * @return string
      */
@@ -716,10 +716,10 @@ if (!function_exists('list_of_menu_error_items')) {
         $items = [];
         foreach (list_of_error_codes() as $erra) {
             $items[] = [
-                'text'       => "{$erra['code']} Error Records ",
-                'url'        => "admin/error-records/{$erra['code']}",
+                'text' => "{$erra['code']} Error Records ",
+                'url' => "admin/error-records/{$erra['code']}",
                 'icon_color' => "{$erra['color']}",
-                'icon'       => "{$erra['icon']}",
+                'icon' => "{$erra['icon']}",
                 //         'can' => 'show-error-records'
             ];
         }

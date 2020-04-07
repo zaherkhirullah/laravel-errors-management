@@ -42,7 +42,7 @@
 @section('js')
     <script type="text/javascript">
         $(document).ready(function () {
-            <?php $TrashParam = has_trash_param() ? '?trash=true':''?>
+            <?php $TrashParam = has_trash_param() ? '?trash=true' : ''?>
             // init table
             var _url = "{{ "/admin/error-records/$code/{$row->id}{$TrashParam}"}}";
             var _columns = [
@@ -50,7 +50,7 @@
                 {data: "link", name: "link"},
                 {data: "previous", name: "previous"},
                 {data: "created_at", name: "created_at"},
-                {data: "action", name: "action",  width: "125", orderable: false, searchable: false}
+                {data: "action", name: "action", width: "125", orderable: false, searchable: false}
             ];
             $('#_table').DataTable({
                 "processing": true,

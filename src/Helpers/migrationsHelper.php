@@ -9,7 +9,7 @@ use Illuminate\Database\Schema\Blueprint;
 
 if (!function_exists('seo_columns')) {
     /**
-     * @param Blueprint $table
+     * @param  Blueprint  $table
      *
      * @return mixed
      */
@@ -25,7 +25,7 @@ if (!function_exists('seo_columns')) {
 
 if (!function_exists('locked_columns')) {
     /**
-     * @param Blueprint $table
+     * @param  Blueprint  $table
      *
      * @return mixed
      */
@@ -39,7 +39,7 @@ if (!function_exists('locked_columns')) {
 
 if (!function_exists('active_visits_columns')) {
     /**
-     * @param Blueprint $table
+     * @param  Blueprint  $table
      *
      * @return mixed
      */
@@ -53,7 +53,7 @@ if (!function_exists('active_visits_columns')) {
 
 if (!function_exists('editor_columns')) {
     /**
-     * @param Blueprint $table
+     * @param  Blueprint  $table
      *
      * @return mixed
      */

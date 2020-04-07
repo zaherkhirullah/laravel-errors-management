@@ -56,7 +56,8 @@
         .border > .message {
             padding: 0 25px;
         }
-        .home{
+
+        .home {
             position: absolute;
             margin-top: 50px;
         }

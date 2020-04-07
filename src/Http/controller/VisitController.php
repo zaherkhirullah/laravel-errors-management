@@ -5,13 +5,14 @@ namespace Hayrullah\ErrorManagement\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Hayrullah\ErrorManagement\Models\Visit;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class VisitController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,7 +22,7 @@ class VisitController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -31,9 +32,9 @@ class VisitController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  Request  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -43,9 +44,9 @@ class VisitController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Visit $visit
+     * @param  \App\Visit  $visit
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Visit $visit)
     {
@@ -55,9 +56,9 @@ class VisitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Visit $visit
+     * @param  \App\Visit  $visit
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Visit $visit)
     {
@@ -67,10 +68,10 @@ class VisitController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Visit               $visit
+     * @param  Request  $request
+     * @param  \App\Visit  $visit
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Visit $visit)
     {
@@ -80,9 +81,9 @@ class VisitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Visit $visit
+     * @param  \App\Visit  $visit
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Visit $visit)
     {

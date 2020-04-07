@@ -103,9 +103,12 @@ class ErrorsManagementProvider extends ServiceProvider
             }
 
             $this->publishes(
-                [__DIR__.'/../resources/views/errors-management' => $this->app->resourcePath('views/vendor/errors-management'),
-                __DIR__.'/../resources/views/errors' => $this->app->resourcePath('views/errors'),],
-                'errors-management-views');
+                [
+                    __DIR__.'/../resources/views/errors-management' => $this->app->resourcePath('views/vendor/errors-management'),
+                    __DIR__.'/../resources/views/errors' => $this->app->resourcePath('views/errors'),
+                ],
+                'errors-management-views'
+            );
 
             $this->publishes(
                 [__DIR__.'/../providers/ErrorsManagementProvider.php' => app_path('/Providers/ErrorsManagementProvider.php')],

@@ -54,7 +54,7 @@ if (!function_exists('default_lang')) {
     /**
      * @param      $attr
      * @param      $lang
-     * @param null $prefix
+     * @param  null  $prefix
      *
      * @return string
      */
@@ -69,7 +69,7 @@ if (!function_exists('langAttr')) {
     /**
      * @param      $attr
      * @param      $lang
-     * @param null $prefix
+     * @param  null  $prefix
      *
      * @return string
      */
@@ -95,8 +95,8 @@ if (!function_exists('availableLanguages')) {
             $title = langTitles()[$key];
             $slug = langSlugs()[$key];
             $langArr[] = [
-                'code'  => $code,
-                'slug'  => $slug,
+                'code' => $code,
+                'slug' => $slug,
                 'title' => $title,
             ];
         }

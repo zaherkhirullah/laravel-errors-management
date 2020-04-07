@@ -20,7 +20,7 @@
                 <i class="fas fa-fw fa-exclamation-circle"></i>
                 <b> @yield('title')</b>
             </h3>
-{{--            {!! addTrashButton(null,"error-records/{$code}") !!}--}}
+            {{--            {!! addTrashButton(null,"error-records/{$code}") !!}--}}
         </div>
         {{-- table body--}}
         <div class="card-body">
@@ -45,8 +45,8 @@
     <script src="{{asset('js/global.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-             <?php $TrashParam = has_trash_param()?>
-            var _url = "{{ "/admin{$TrashParam}/error-records/$code"}}"
+                <?php $TrashParam = has_trash_param()?>
+            var _url = "{{ "/admin{$TrashParam}/error-records/$code"}}";
             var _columns = [
                 {data: "id", name: "id", width: "60", className: 'align-middle text-center'},
                 {data: "link", name: "link"},

@@ -1,6 +1,7 @@
 <?php
 
 //use App\Attachment;
+use App\Attachment;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -71,7 +72,7 @@ if (!function_exists('uploadImage')) {
      * @param      $request
      * @param      $field_name
      * @param      $folder
-     * @param null $old_image
+     * @param  null  $old_image
      *
      * @return string
      */
@@ -124,8 +125,8 @@ if (!function_exists('attachFiles')) {
      * @param      $request
      * @param      $field_name
      * @param      $folder
-     * @param null $row
-     * @param null $type
+     * @param  null  $row
+     * @param  null  $type
      *
      * @return array
      */
@@ -158,7 +159,7 @@ if (!function_exists('attachFiles')) {
 if (!function_exists('saveAttachments')) {
     function saveAttachments($request, $row, $original_name, $storage_name, $folder, $size, $type)
     {
-        $file = new \App\Attachment();
+        $file = new Attachment();
         $file->file_name = $original_name;
         $file->storage_name = $storage_name;
         $file->path = $folder;
@@ -181,8 +182,8 @@ if (!function_exists('unlinkFile')) {
     /**
      * for delete file from directory.
      *
-     * @param $fileName ( obj->file )
-     * @param $folderName ('uploads/folderName')
+     * @param $fileName  ( obj->file )
+     * @param $folderName  ('uploads/folderName')
      */
     function unlinkFile($fileName, $folderName)
     {
@@ -201,7 +202,7 @@ if (!function_exists('unlinkFile')) {
 if (!function_exists('uploadFromTiny')) {
     /**
      * @param $request
-     * @param string $field_name
+     * @param  string  $field_name
      * @param $folder
      *
      * @return mixed
