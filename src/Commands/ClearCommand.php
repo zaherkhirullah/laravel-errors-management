@@ -11,7 +11,7 @@ class ClearCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'error_records:clear';
+    protected $signature = 'errors_management:clear';
 
     /**
      * The console command description.

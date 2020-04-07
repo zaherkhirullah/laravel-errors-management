@@ -11,7 +11,7 @@ class CacheCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'error_records:cache';
+    protected $signature = 'errors_management:cache';
 
     /**
      * The console command description.

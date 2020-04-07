@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', __("backend.dashboard"))
+@section('title', __("ErrorsManagement::trans.dashboard"))
 
 @section('css')
 @endsection
