@@ -69,9 +69,9 @@ if (!function_exists('store_file')) {
 
 if (!function_exists('uploadImage')) {
     /**
-     * @param   $request
-     * @param   $field_name
-     * @param   $folder
+     * @param      $request
+     * @param      $field_name
+     * @param      $folder
      * @param null $old_image
      *
      * @return string
@@ -122,9 +122,9 @@ if (!function_exists('uploadImages')) {
 
 if (!function_exists('attachFiles')) {
     /**
-     * @param   $request
-     * @param   $field_name
-     * @param   $folder
+     * @param      $request
+     * @param      $field_name
+     * @param      $folder
      * @param null $row
      * @param null $type
      *
@@ -201,9 +201,9 @@ if (!function_exists('unlinkFile')) {
 
 if (!function_exists('uploadFromTiny')) {
     /**
-     * @param $request
+     * @param        $request
      * @param string $field_name
-     * @param $folder
+     * @param        $folder
      *
      * @return mixed
      */

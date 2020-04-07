@@ -86,8 +86,8 @@ if (!function_exists('jsonOutput')) {
 
 if (!function_exists('callAPI')) {
     /**
-     * @param   $method
-     * @param   $url
+     * @param      $method
+     * @param      $url
      * @param null $data
      *
      * @return bool|string
@@ -216,10 +216,10 @@ if (!function_exists('force_delete_record')) {
 
 if (!function_exists('show_record')) {
     /**
-     * @param   $request
-     * @param   $modelName
-     * @param   $id
-     * @param   $permissionName
+     * @param      $request
+     * @param      $modelName
+     * @param      $id
+     * @param      $permissionName
      * @param null $with
      *
      * @return JsonResponse|void
@@ -259,7 +259,7 @@ if (!function_exists('increment_visits')) {
     /**
      * increment visits.
      *
-     * @param    $row
+     * @param        $row
      * @param string $key is $key_visits_slug
      */
     function increment_visits($row, $key = 'page')
@@ -372,7 +372,7 @@ if (!function_exists('trashInfo')) {
 
 if (!function_exists('hiddenSm')) {
     /**
-     * @param   $data
+     * @param      $data
      * @param null $className
      *
      * @return string
@@ -388,9 +388,9 @@ if (!function_exists('hiddenSm')) {
 
 if (!function_exists('titleLink')) {
     /**
-     * @param    $prefix
-     * @param    $row
-     * @param    $can_edit
+     * @param        $prefix
+     * @param        $row
+     * @param        $can_edit
      * @param string $attr
      *
      * @return string
@@ -416,9 +416,9 @@ if (!function_exists('titleLink')) {
 
 if (!function_exists('slugLink')) {
     /**
-     * @param    $row
+     * @param        $row
      * @param string $prefix
-     * @param null $url
+     * @param null   $url
      *
      * @return string
      */
@@ -436,10 +436,10 @@ if (!function_exists('slugLink')) {
 
 if (!function_exists('actionLinks')) {
     /**
-     * @param   $row
+     * @param      $row
      * @param null $prefix
-     * @param   $user_can_edit
-     * @param   $user_can_delete
+     * @param      $user_can_edit
+     * @param      $user_can_delete
      *
      * @return string
      */
@@ -567,7 +567,7 @@ if (!function_exists('addTrashButton')) {
 
 if (!function_exists('activeRecordButton')) {
     /**
-     * @param   $permissionName
+     * @param      $permissionName
      * @param null $href
      * @param null $params
      * @param null $className
@@ -625,7 +625,7 @@ if (!function_exists('activeButton')) {
 
 if (!function_exists('copyBtn')) {
     /**
-     * @param   $shorten_link
+     * @param      $shorten_link
      * @param null $className
      *
      * @return string

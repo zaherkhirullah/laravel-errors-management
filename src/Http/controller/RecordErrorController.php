@@ -35,8 +35,8 @@ class RecordErrorController extends Controller
 
     /**
      * @param Request $request
-     * @param $code
-     * @param null $trash
+     * @param         $code
+     * @param null    $trash
      *
      * @throws Exception
      *
@@ -229,7 +229,7 @@ class RecordErrorController extends Controller
 
     /**
      * @param Request $request
-     * @param $id
+     * @param         $id
      *
      * @return JsonResponse
      */
@@ -252,7 +252,7 @@ class RecordErrorController extends Controller
 
     /**
      * @param Request $request
-     * @param $id
+     * @param         $id
      *
      * @return JsonResponse
      */
@@ -275,7 +275,7 @@ class RecordErrorController extends Controller
 
     /**
      * @param Request $request
-     * @param $id
+     * @param         $id
      *
      * @return JsonResponse
      */
