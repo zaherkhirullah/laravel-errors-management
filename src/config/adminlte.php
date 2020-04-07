@@ -278,7 +278,7 @@ return [
                         'icon'       => 'fas fa-fas fa-fw fa-exclamation',
                         //                    'can' => 'show-error-records'
                     ],
-                ]
+                ],
         ],
     ],
 

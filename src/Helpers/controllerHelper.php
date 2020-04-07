@@ -683,7 +683,7 @@ if (!function_exists('viewOrError')) {
 if (!function_exists('getActionColumn')) {
     function getActionColumn($datatable, $can_edit, $can_delete, $can_restore, $can_force_delete, $trash)
     {
-        $datatable->addColumn('action', function($row) use ($can_edit, $can_delete, $can_restore, $can_force_delete, $trash) {
+        $datatable->addColumn('action', function ($row) use ($can_edit, $can_delete, $can_restore, $can_force_delete, $trash) {
             if ($trash) {
                 return trashActionLinks($row, $can_restore, $can_force_delete);
             } else {
