@@ -17,11 +17,6 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         $this->registerHelpers();
 
-        if ($this->app->runningInConsole()) {
-            $this->registerResources();
-            $this->registerCommands();
-        }
-
         $this->mergeConfigFrom(__DIR__.'/config/record_errors.php', 'record_errors');
         $this->mergeConfigFrom(__DIR__.'/config/adminlte.php', 'adminlte');
 
@@ -48,6 +43,11 @@ class ErrorsManagementProvider extends ServiceProvider
 
         if (!$config) {
             return;
+        }
+
+        if ($this->app->runningInConsole()) {
+            $this->registerResources();
+            $this->registerCommands();
         }
 
         $this->app->bind(Models\RecordError::class, $config['record_error']);
