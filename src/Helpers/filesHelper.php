@@ -182,7 +182,7 @@ if (!function_exists('unlinkFile')) {
     /**
      * for delete file from directory.
      *
-     * @param $fileName ( obj->file )
+     * @param $fileName   ( obj->file )
      * @param $folderName ('uploads/folderName')
      */
     function unlinkFile($fileName, $folderName)
