@@ -84,7 +84,6 @@ class ErrorsManagementProvider extends ServiceProvider
 
     }
 
-
     protected function registerModels()
     {
         $config = $this->app->config['errors_management.models'];
