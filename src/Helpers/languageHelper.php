@@ -95,8 +95,8 @@ if (!function_exists('availableLanguages')) {
             $title = langTitles()[$key];
             $slug = langSlugs()[$key];
             $langArr[] = [
-                'code' => $code,
-                'slug' => $slug,
+                'code'  => $code,
+                'slug'  => $slug,
                 'title' => $title,
             ];
         }

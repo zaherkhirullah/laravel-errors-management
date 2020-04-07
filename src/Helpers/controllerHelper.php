@@ -77,7 +77,7 @@ if (!function_exists('jsonOutput')) {
     function jsonOutput($error_array, $success_output = null)
     {
         return [
-            'error' => $error_array,
+            'error'   => $error_array,
             'success' => $success_output,
         ];
     }
@@ -716,10 +716,10 @@ if (!function_exists('list_of_menu_error_items')) {
         $items = [];
         foreach (list_of_error_codes() as $erra) {
             $items[] = [
-                'text' => "{$erra['code']} Error Records ",
-                'url' => "admin/error-records/{$erra['code']}",
+                'text'       => "{$erra['code']} Error Records ",
+                'url'        => "admin/error-records/{$erra['code']}",
                 'icon_color' => "{$erra['color']}",
-                'icon' => "{$erra['icon']}",
+                'icon'       => "{$erra['icon']}",
                 //     'can' => 'show-error-records'
             ];
         }

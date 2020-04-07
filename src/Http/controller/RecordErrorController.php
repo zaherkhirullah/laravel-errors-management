@@ -102,11 +102,11 @@ class RecordErrorController extends Controller
                 return $output;
             });
             $datatable->rawColumns([
-                'link' => 'link',
-                'previous' => 'previous',
-                'visits' => 'visits',
+                'link'       => 'link',
+                'previous'   => 'previous',
+                'visits'     => 'visits',
                 'last_visit' => 'last_visit',
-                'action' => 'action',
+                'action'     => 'action',
             ]);
 
             return $datatable->make(true);
@@ -152,10 +152,10 @@ class RecordErrorController extends Controller
                     return $output;
                 })
                 ->rawColumns([
-                    'link' => 'link',
-                    'previous' => 'previous',
+                    'link'       => 'link',
+                    'previous'   => 'previous',
                     'created_at' => 'created_at',
-                    'action' => 'action',
+                    'action'     => 'action',
                 ])
                 ->make(true);
         }
@@ -178,7 +178,7 @@ class RecordErrorController extends Controller
             return false;
         }
         $validation = Validator::make($request->all(), [
-            'link' => 'required',
+            'link'     => 'required',
             'previous' => 'required',
         ]);
         if ($validation->fails()) {
