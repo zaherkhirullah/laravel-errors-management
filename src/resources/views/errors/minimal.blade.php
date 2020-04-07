@@ -61,6 +61,9 @@
             position: absolute;
             margin-top: 50px;
         }
+        .px-2 {
+            margin:0 10px;
+        }
     </style>
 </head>
 <body>
@@ -76,7 +79,8 @@
         </div>
     </div>
     <div class="home">
-        <a href="{{url('/')}}">{{__('return_to_home')}}</a>
+        <a href="{{url()->previous()}}" class="px-2">{{__('Back')}}</a>
+        <a href="{{url('/')}}" class="px-2">{{__('Go to home')}}</a>
     </div>
 </div>
 <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
