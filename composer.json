@@ -17,7 +17,7 @@
     "yajra/laravel-datatables-oracle": "^9.7"
   },
   "require-dev": {
-    "laravel/ui": "^2.0",
+    "laravel/ui": "^1.2.0",
     "laravel/framework": "^6.0",
     "phpunit/phpunit": "8.5.*"
   },
