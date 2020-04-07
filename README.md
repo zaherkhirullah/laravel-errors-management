@@ -23,29 +23,33 @@ ip and  more details about visits.
 
 See the [DOCUMENTATION](https://packagist.org/packages/hayrullah/laravel-errors-management) for detailed installation and usage instructions.
 
-##### Step 1 
+<i> Step 1 </i>
+
 ```
-    composer require hayrullah/laravel-errors-management
+$ composer require hayrullah/laravel-errors-management
  ```
 
-##### Step 2
- ```   
- 
- php artisan vendor:publish "hayrullah/record-erros" --tag=views 
- ```
+<i> Step 2 </i>
 
-##### Step 3
- ```   
- php artisan vendor:publish "Hayrullah\ErrorManagement\ErrorManagementProvider" --tag=config 
- php artisan vendor:publish "Hayrullah\ErrorManagement\ErrorManagementProvider" --tag=views 
- ```
+```   
+$ php artisan adminlte:install  --tag=main_views
+```
 
+<i> Step 3 </i>
 
-##### Step 4
+```   
+$ php artisan vendor:publish --provider="Hayrullah\ErrorManagement\ErrorManagementProvider" --tag=config
+$ php artisan vendor:publish --provider="Hayrullah\ErrorManagement\ErrorManagementProvider" --tag=views
+```
 
-<code>
-    php artisan migrate
-</code>   
+<i> Step 4 </i>
+   
+```   
+$  php artisan migrate
+```
+```   
+$  php artisan serve
+```
 
 
  
