@@ -13,7 +13,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'record_error' => Hayrullah\ErrorsManagement\Models\RecordError::class,
+        'record_error' => Hayrullah\ErrorsManagement\Models\ErrorsManagement::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which

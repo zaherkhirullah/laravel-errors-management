@@ -7,7 +7,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{route('RecordError::dashboard')}}"><i class="fas fa-tachometer-alt"></i> {{__('RecordError::trans.dashboard')}}</a>
+            <a href="{{route('ErrorsManagement::dashboard')}}"><i class="fas fa-tachometer-alt"></i> {{__('ErrorsManagement::trans.dashboard')}}</a>
         </li>
         <li class="breadcrumb-item">
             <a href="" class="no-link">@yield('title')</a>
@@ -30,12 +30,12 @@
     <div class="row">
         <div class="col-12">
             <div class="text-center">
-                <a href="{{route('RecordError::dashboard')}}" class="btn btn-lg btn-outline-info">
+                <a href="{{route('ErrorsManagement::dashboard')}}" class="btn btn-lg btn-outline-info">
                     <i class="fas fa-fas fa-fw fa-tachometer-alt"></i>
-                    {{__('RecordError::trans.dashboard')}}
+                    {{__('ErrorsManagement::trans.dashboard')}}
                 </a>
                 <a href="{{url()->previous()}}" class="btn btn-lg btn-outline-secondary">
-                    {{__('RecordError::trans.back')}}
+                    {{__('ErrorsManagement::trans.back')}}
                     <i class="fas fa-chevron-circle-left"></i>
                 </a>
             </div>

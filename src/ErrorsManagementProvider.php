@@ -32,7 +32,7 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadViewsFrom(__DIR__.'/resources/views/errors-management', 'ErrorsManagement');
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+//        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         $this->registerModels();
     }
@@ -50,7 +50,7 @@ class ErrorsManagementProvider extends ServiceProvider
             $this->registerCommands();
         }
 
-        $this->app->bind(Models\RecordError::class, $config['record_error']);
+        $this->app->bind(Models\ErrorsManagement::class, $config['record_error']);
         $this->app->bind(Models\Visit::class, $config['visits']);
     }
 
