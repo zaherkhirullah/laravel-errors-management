@@ -58,26 +58,26 @@ class RecordErrorController extends Controller
             $rows = $trash ? $rows->onlyTrashed()->get() : $rows->get();
 
             $datatable = Datatables::of($rows);
-            $datatable->addColumn('link', function($row) {
+            $datatable->addColumn('link', function ($row) {
                 $link = Str::limit($row->link, 60);
 
                 return "<p><a href='{$row->link}'  target='_blank' data-toggle='tooltip' title='$row->link' style='word-break: break-all'>$link</a></p>";
             });
-            $datatable->addColumn('previous', function($row) {
+            $datatable->addColumn('previous', function ($row) {
                 $previous = Str::limit($row->previous, 60);
 
                 return "<p><a href='{$row->previous}'  target='_blank' data-toggle='tooltip' title='$row->previous' style='word-break: break-all'>$previous</a></p>";
             });
-            $datatable->addColumn('visits', function($row) {
+            $datatable->addColumn('visits', function ($row) {
                 return "<p class='text-center align-middle'><span class='btn btn-sm btn-sm badge-warning'> <i class='fas fa-eye'></i> $row->visits_count  </span></p>";
             });
-            $datatable->addColumn('last_visit', function($row) {
+            $datatable->addColumn('last_visit', function ($row) {
                 $last_visit = $row->visits()->latest()->first();
                 $last_visit = optional($last_visit)->created_at;
 
                 return "<p class='text-center align-middle'><span> $last_visit </span></p>";
             });
-            $datatable->addColumn('action', function($row) use ($code, $user_can_delete, $user_can_restore, $user_can_force_delete, $trash) {
+            $datatable->addColumn('action', function ($row) use ($code, $user_can_delete, $user_can_restore, $user_can_force_delete, $trash) {
                 $url = url("$row->bPrefixPath/$code/$row->id");
                 if ($trash) {
                     $output = '';
@@ -140,11 +140,11 @@ class RecordErrorController extends Controller
 
                 return "<p><a href='{$row->previous}'  target='_blank' data-toggle='tooltip' title='$row->previous' style='word-break: break-all'>$previous</a></p>";
             })
-            ->addColumn('created_at', function($row) {
+            ->addColumn('created_at', function ($row) {
                 return "<p class='text-center align-middle'><span>$row->created_at
                 </span></p>";
             })
-            ->addColumn('action', function($row) use ($user_can_delete) {
+            ->addColumn('action', function ($row) use ($user_can_delete) {
                 $output = '';
                 if ($user_can_delete) {
                     $title = __('delete');
