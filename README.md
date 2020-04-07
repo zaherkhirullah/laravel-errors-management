@@ -9,7 +9,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/zaherkhirullah/laravel-errors-management)](https://github.com/zaherkhirullah/laravel-errors-management/stargazers)
 [![GitHub license](https://img.shields.io/github/license/zaherkhirullah/laravel-errors-management)](https://github.com/zaherkhirullah/laravel-errors-management)
 [![Quality Score](https://img.shields.io/scrutinizer/g/zaherkhirullah/laravel-errors-management.svg?style=flat-square)](https://scrutinizer-ci.com/g/zaherkhirullah/laravel-errors-management)
-[![StyleCI](https://styleci.io/repos/253288089/shield)](https://styleci.io/repos/253288089)
+[![StyleCI](https://styleci.io/repos/253813301/shield)](https://styleci.io/repos/253813301)
 
 ### 404 and 500 error records  
 
