@@ -1,7 +1,6 @@
 <?php
 
 //use App\Attachment;
-use App\Attachment;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -159,21 +158,21 @@ if (!function_exists('attachFiles')) {
 if (!function_exists('saveAttachments')) {
     function saveAttachments($request, $row, $original_name, $storage_name, $folder, $size, $type)
     {
-        $file = new Attachment();
-        $file->file_name = $original_name;
-        $file->storage_name = $storage_name;
-        $file->path = $folder;
-        $file->size = $size;
-        $file->type = $type;
-        if ($row) {
-            $row->attachments()->save($file);
-        } else {
-            $file->attachable_id = $request->attachable_id;
-            $file->attachable_type = $request->attachable_type;
-            $file->save();
-        }
-
-        return $file;
+//        $file = new Attachment();
+//        $file->file_name = $original_name;
+//        $file->storage_name = $storage_name;
+//        $file->path = $folder;
+//        $file->size = $size;
+//        $file->type = $type;
+//        if ($row) {
+//            $row->attachments()->save($file);
+//        } else {
+//            $file->attachable_id = $request->attachable_id;
+//            $file->attachable_type = $request->attachable_type;
+//            $file->save();
+//        }
+//
+//        return $file;
     }
 }
 /*---------------------------------- </> ----------------------------------*/
