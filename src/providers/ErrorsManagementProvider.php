@@ -82,16 +82,21 @@ class ErrorsManagementProvider extends ServiceProvider
     public function registerResources()
     {
         if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
-            $this->publishes([__DIR__.'/../config/record_errors.php' => config_path('record_errors.php')], 'config');
+            $this->publishes(
+                [__DIR__.'/../config/record_errors.php' => config_path('record_errors.php')]
+                , 'config');
 
             $timestamp = date('Y_m_d_His', time());
             if (!class_exists('CreateRecordErrorsTable')) {
-                $this->publishes([__DIR__.'/../../database/migrations/2020_04_105050_create_record_errors_table.php' => database_path("migrations/{$timestamp}_create_record_errors_table.php")],
+                $this->publishes(
+                    [__DIR__.'/../../database/migrations/2020_04_105050_create_record_errors_table.php' => database_path("migrations/{$timestamp}_create_record_errors_table.php")],
                     'migrations');
             }
 
             if (!class_exists('CreateVisitsTable')) {
-                $this->publishes([__DIR__.'/../../database/migrations/2020_04_105051_create_visits_table.php' => database_path("migrations/{$timestamp}_create_visits_table.php")], 'migrations');
+                $this->publishes(
+                    [__DIR__.'/../../database/migrations/2020_04_105051_create_visits_table.php' => database_path("migrations/{$timestamp}_create_visits_table.php")]
+                    , 'migrations');
             }
 
             $this->publishes([
