@@ -125,13 +125,13 @@ class RecordErrorController extends Controller
 
         $record = RecordError::findOrFail($id);
         if (!$request->ajax()) {
-            return view('errors_management::show', compact('row', 'code'));
+            return view('errors_management::show', compact('code'))->with(['row'=>$record]);
         }
 //            $rows = RecordError::where('link', $row->link)->where('id', '!=', $id);
         $rows = $record->visits;
 
         return Datatables::of($rows)
-            ->addColumn('link', function ($row) use ($record) {
+            ->addColumn('link', function () use ($record) {
                 $link = Str::limit($record->link, 60);
 
                 return "<p><a href='{$record->link}'  target='_blank' data-toggle='tooltip' title='$record->link' style='word-break: break-all'>$link</a></p>";

@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', __('record.title',['code'=>$code]))
+{{--@section('title', __('record.title',['code'=>$code]))--}}
+@section('title', $code . " Error Records" )
 
 @section('css')
 @endsection

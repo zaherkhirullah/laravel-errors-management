@@ -13,7 +13,7 @@ class RecordError extends Model
     use SoftDeletes;
     use HasVisits;
 
-    protected $bPrefix = 'admin/error-records';
+    protected $bPrefix = 'errors-management/records';
 
     /**
      * @param $query

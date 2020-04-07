@@ -219,7 +219,7 @@ return [
             'can'  => 'manage-blog',
         ], [
             'text' => 'Dashboard',
-            'url'  => 'admin/errors-management',
+            'url'  => 'errors-management',
             'icon' => 'fas fa-tachometer-alt',
         ],
         [
@@ -227,58 +227,58 @@ return [
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-exclamation-circle',
             //            'submenu' => list_of_menu_error_items()
-            'submenu' => list_of_menu_error_items(),
-            //                [
-            //                    [
-            //                        'text' => '401 Error Records ',
-            //                        'url' => 'admin/error-records/401',
-            //                        'icon_color' => 'success',
-            //                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
-            ////                    'can' => 'show-error-records'
-            //                    ],
-            //                    [
-            //                        'text' => '403 Error Records ',
-            //                        'url' => 'admin/error-records/403',
-            //                        'icon_color' => 'success',
-            //                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
-            ////                    'can' => 'show-error-records'
-            //                    ],
-            //                    [
-            //                        'text' => '404 Error Records ',
-            //                        'url' => 'admin/error-records/404',
-            //                        'icon_color' => 'success',
-            //                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
-            ////                    'can' => 'show-error-records'
-            //                    ],
-            //                    [
-            //                        'text' => '419 Error Records ',
-            //                        'url' => 'admin/error-records/419',
-            //                        'icon_color' => 'success',
-            //                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
-            ////                    'can' => 'show-error-records'
-            //                    ],
-            //                    [
-            //                        'text' => '429 Error Records ',
-            //                        'url' => 'admin/error-records/429',
-            //                        'icon_color' => 'success',
-            //                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
-            ////                    'can' => 'show-error-records'
-            //                    ],
-            //                    [
-            //                        'text' => '500 Error Records ',
-            //                        'url' => 'admin/error-records/500',
-            //                        'icon_color' => 'success',
-            //                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
-            ////                    'can' => 'show-error-records'
-            //                    ],
-            //                    [
-            //                        'text' => '503 Error Records ',
-            //                        'url' => 'admin/error-records/503',
-            //                        'icon_color' => 'success',
-            //                        'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle',
-            ////                    'can' => 'show-error-records'
-            //                    ],
-            //                ]
+            'submenu' => /*list_of_menu_error_items(),*/
+                [
+                    [
+                        'text'       => '401 Error Records ',
+                        'url'        => 'errors-management/records/401',
+                        'icon_color' => 'warning',
+                        'icon'       => 'fas fa-fas fa-fw fa-exclamation',
+                        //                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text'       => '403 Error Records ',
+                        'url'        => 'errors-management/records/403',
+                        'icon_color' => 'blue',
+                        'icon'       => 'fas fa-fas fa-fw fa-exclamation-circle',
+                        //                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text'       => '404 Error Records ',
+                        'url'        => 'errors-management/records/404',
+                        'icon_color' => 'danger',
+                        'icon'       => 'fas fa-fas fa-fw fa-exclamation-triangle',
+                        //                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text'       => '419 Error Records ',
+                        'url'        => 'errors-management/records/419',
+                        'icon_color' => 'secondary',
+                        'icon'       => 'fas fa-fas fa-fw fa-exclamation-circle',
+                        //                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text'       => '429 Error Records ',
+                        'url'        => 'errors-management/records/429',
+                        'icon_color' => 'light',
+                        'icon'       => 'fas fa-fas fa-fw fa-exclamation-circle',
+                        //                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text'       => '500 Error Records ',
+                        'url'        => 'errors-management/records/500',
+                        'icon_color' => 'danger',
+                        'icon'       => 'fas fa-fas fa-fw fa-exclamation-triangle',
+                        //                    'can' => 'show-error-records'
+                    ],
+                    [
+                        'text'       => '503 Error Records ',
+                        'url'        => 'errors-management/records/503',
+                        'icon_color' => 'info',
+                        'icon'       => 'fas fa-fas fa-fw fa-exclamation',
+                        //                    'can' => 'show-error-records'
+                    ],
+                ]
         ],
     ],
 
