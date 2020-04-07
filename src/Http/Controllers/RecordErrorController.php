@@ -36,13 +36,13 @@ class RecordErrorController extends Controller
     /**
      * @param Request $request
      * @param         $code
-     * @param null    $trash
+     * @param         $trash
      *
      * @throws Exception
      *
      * @return Factory|View
      */
-    public function index(Request $request, $code, $trash = null)
+    public function index(Request $request, $code, $trash = '')
     {
         if (!check_user_authorize($this->permissionName, $trash)) {
             return view('errors_management::errors.401');
