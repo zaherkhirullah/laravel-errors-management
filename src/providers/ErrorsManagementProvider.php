@@ -61,6 +61,7 @@ class ErrorsManagementProvider extends ServiceProvider
                 list($role, $guard) = explode(',', $arguments.',');
 
                 /*                return "<?php if(auth({$guard})->check() && auth({$guard})->user()->hasRole({$role})): ?>";*/
+
                 return "<?php if(auth({$guard})->check() && auth({$guard})->user()->hasRole({$role})): ?>";
             });
             $bladeCompiler->directive('elserecorded', function ($arguments) {

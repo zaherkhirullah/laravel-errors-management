@@ -2,8 +2,8 @@
 
 namespace Hayrullah\ErrorManagement\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Exception;
+use Hayrullah\ErrorManagement\Http\Controllers\Controller;
 use Hayrullah\ErrorManagement\Models\RecordError;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
@@ -313,6 +313,7 @@ class RecordErrorController extends Controller
             case '503':
                 return true;
         }
+
         return false;
     }
 }
