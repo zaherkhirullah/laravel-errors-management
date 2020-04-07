@@ -7,7 +7,7 @@
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fas fa-tachometer-alt"></i> {{__('errors_management::trans.home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
         <li class="breadcrumb-item"><a href="{{url("/errors-management/records/{$code}")}}" class="no-link"> @yield('title') </a></li>
     </ol>
 @stop
@@ -28,11 +28,11 @@
                    style="width:100%">
                 <thead>
                 <tr>
-                    <th> {{ __('errors_management::trans.table.id') }}</th>
-                    <th> {{ __('errors_management::trans.table.link') }}</th>
-                    <th> {{ __('errors_management::trans.table.previous') }}</th>
-                    <th> {{ __('errors_management::trans.table.visit_date') }}</th>
-                    <th> {{ __('errors_management::trans.table.action') }}</th>
+                    <th> {{ __('id') }}</th>
+                    <th> {{ __('link') }}</th>
+                    <th> {{ __('previous') }}</th>
+                    <th> {{ __('visit_date') }}</th>
+                    <th> {{ __('action') }}</th>
                 </tr>
                 </thead>
             </table>

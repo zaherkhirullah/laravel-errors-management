@@ -11,7 +11,7 @@ class CacheCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'errors_management:cache';
+    protected $signature = 'cache:all';
 
     /**
      * The console command description.
@@ -39,7 +39,7 @@ class CacheCommand extends Command
     {
         $this->call('config:cache');
         $this->call('event:cache');
-        $this->call('route:cache');
+//        $this->call('route:cache');
 //        $this->call('route:trans:cache');
         $this->call('view:cache');
     }

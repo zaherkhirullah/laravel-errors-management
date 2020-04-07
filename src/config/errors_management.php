@@ -13,7 +13,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'record_error' => Hayrullah\ErrorsManagement\Models\ErrorsManagement::class,
+        'record_error' => Hayrullah\ErrorsManagement\Models\RecordError::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -42,6 +42,7 @@ return [
             'active'   => true,
             'icon'     => 'fas fa-fas fa-fw fa-exclamation',
             'bg-color' => 'bg-warning',
+            'icon_color'    => 'warning',
             'color'    => 'warning',
             'code'     => 401,
         ],
@@ -49,6 +50,7 @@ return [
             'active'   => true,
             'icon'     => 'fas fa-fas fa-fw fa-exclamation-circle',
             'bg-color' => 'bg-blue',
+            'icon_color'    => 'blue',
             'color'    => 'blue',
             'code'     => 403,
         ],
@@ -56,6 +58,7 @@ return [
             'active'   => true,
             'icon'     => 'fas fa-fas fa-fw fa-exclamation-triangle',
             'bg-color' => 'bg-danger',
+            'icon_color'    => 'danger',
             'color'    => 'danger',
             'code'     => 404,
         ],
@@ -63,6 +66,7 @@ return [
             'active'   => true,
             'icon'     => 'fas fa-fas fa-fw fa-exclamation-circle',
             'bg-color' => 'bg-secondary',
+            'icon_color'    => 'secondary',
             'color'    => 'secondary',
             'code'     => 419,
         ],
@@ -70,6 +74,7 @@ return [
             'active'   => true,
             'icon'     => 'fas fa-fas fa-fw fa-exclamation-circle',
             'bg-color' => 'bg-dark',
+            'icon_color'    => 'secondary',
             'color'    => 'dark',
             'code'     => 429,
         ],
@@ -77,6 +82,7 @@ return [
             'active'   => true,
             'icon'     => 'fas fa-fas fa-fw fa-exclamation-triangle',
             'bg-color' => 'bg-danger',
+            'icon_color'    => 'secondary',
             'color'    => 'danger',
             'code'     => 500,
         ],
@@ -84,6 +90,7 @@ return [
             'active'   => true,
             'icon'     => 'fas fa-fas fa-fw fa-exclamation',
             'bg-color' => 'bg-info',
+            'icon_color'    => 'secondary',
             'color'    => 'info',
             'code'     => 503,
         ],

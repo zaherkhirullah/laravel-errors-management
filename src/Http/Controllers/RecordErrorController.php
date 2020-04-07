@@ -30,7 +30,7 @@ class RecordErrorController extends Controller
      */
     public function dashboard()
     {
-        return view('RecordError::dashboard');
+        return view('errors_management::dashboard');
     }
 
     /**
@@ -45,7 +45,7 @@ class RecordErrorController extends Controller
     public function index(Request $request, $code, $trash = null)
     {
         if (!check_user_authorize($this->permissionName, $trash)) {
-            return view('RecordError::errors.401');
+            return view('errors_management::errors.401');
         }
         $user_can_delete = is_can_delete($this->permissionName);
         $user_can_restore = is_can_restore($this->permissionName);
@@ -82,20 +82,20 @@ class RecordErrorController extends Controller
                 if ($trash) {
                     $output = '';
                     if ($user_can_restore) {
-                        $title = __('errors_management::trans.restore');
+                        $title = __('restore');
                         $output .= "<a href='#' class='btn btn-sm btn-info btn-block btn-restore' id='$row->id'><i class='fas fa-trash-restore'></i> $title  </a>";
                     }
                     if ($user_can_force_delete) {
-                        $title = __('errors_management::trans.force_delete');
+                        $title = __('force_delete');
                         $output .= "<a href='#' class='btn btn-sm btn-warning btn-block btn-force-delete' id='$row->id'><i class='fas fa-fire-alt'></i>  $title </a>";
                     }
 
                     return $output;
                 }
-                $title = __('errors_management::trans.report');
+                $title = __('report');
                 $output = "<a href='$url' class='btn btn-xs btn-info btn-block' id='$row->id'><i class='fas fa-eye'></i> $title </a>";
                 if ($user_can_delete) {
-                    $title = __('errors_management::trans.delete');
+                    $title = __('delete');
                     $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete' id='{$row->id}'><i class='fas fa-trash'></i> $title </a>";
                 }
 
@@ -112,7 +112,7 @@ class RecordErrorController extends Controller
             return $datatable->make(true);
         }
 
-        return view('ErrorsManagement::index', compact('code'));
+        return view('errors_management::index', compact('code'));
     }
 
     public function show(Request $request, $code, $id)
@@ -145,7 +145,7 @@ class RecordErrorController extends Controller
                 ->addColumn('action', function ($row) use ($user_can_delete) {
                     $output = '';
                     if ($user_can_delete) {
-                        $title = __('errors_management::trans.delete');
+                        $title = __('delete');
                         $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete' id='$row->id'><i class='fas fa-trash'></i> $title</a>";
                     }
 
@@ -161,7 +161,7 @@ class RecordErrorController extends Controller
         }
         $row = $record;
 
-        return view('ErrorsManagement::show', compact('row', 'code'));
+        return view('errors_management::show', compact('row', 'code'));
     }
 
     /**
@@ -208,24 +208,24 @@ class RecordErrorController extends Controller
      *
      * @return string
      */
-    private function getFullSrc($full_src)
-    {
-        if (strpos($full_src, 'gclid=') !== false) {
-            $src = 'Google AdWords';
-        } elseif (strpos($full_src, 'fbclid=') !== false) {
-            $src = 'Facebook';
-        } elseif (strpos($full_src, '?hyrsrc=web-push') !== false) {
-            $src = 'Web Notification';
-        } elseif (strpos($full_src, '?hyrsrc=mail-campaigns') !== false) {
-            $src = 'Email Campaigns';
-        } elseif (strpos($full_src, '?hyrsrc=ads-banner') !== false) {
-            $src = 'Advertising banners';
-        } else {
-            $src = $this->src;
-        }
-
-        return $src;
-    }
+//    private function getFullSrc($full_src)
+//    {
+//        if (strpos($full_src, 'gclid=') !== false) {
+//            $src = 'Google AdWords';
+//        } elseif (strpos($full_src, 'fbclid=') !== false) {
+//            $src = 'Facebook';
+//        } elseif (strpos($full_src, '?hyrsrc=web-push') !== false) {
+//            $src = 'Web Notification';
+//        } elseif (strpos($full_src, '?hyrsrc=mail-campaigns') !== false) {
+//            $src = 'Email Campaigns';
+//        } elseif (strpos($full_src, '?hyrsrc=ads-banner') !== false) {
+//            $src = 'Advertising banners';
+//        } else {
+//            $src = $this->src;
+//        }
+//
+//        return $src;
+//    }
 
     /**
      * @param Request $request
@@ -303,15 +303,17 @@ class RecordErrorController extends Controller
      */
     private function allowed_code($code)
     {
-        switch ($code) {
-            case '401':
-            case '403':
-            case '404':
-            case '419':
-            case '429':
-            case '500':
-            case '503':
-                return true;
+        $codes = [
+            '401',
+            '403',
+            '404',
+            '419',
+            '429',
+            '500',
+            '503',
+        ];
+        if (in_array($code, $codes)) {
+            return true;
         }
 
         return false;

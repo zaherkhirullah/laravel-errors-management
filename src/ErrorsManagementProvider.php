@@ -8,6 +8,13 @@ use Illuminate\View\Compilers\BladeCompiler;
 
 class ErrorsManagementProvider extends ServiceProvider
 {
+
+
+    protected $CONFIG_PATH = "config/";
+    protected $ROUTES_PATH = "routes/";
+    protected $RESOURCE_PATH = "resources/";
+    protected $DATABASE_PATH = "database/";
+
     /**
      * Register services.
      *
@@ -17,7 +24,7 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         $this->registerHelpers();
 
-        $this->mergeConfigFrom(__DIR__.'/config/record_errors.php', 'record_errors');
+        $this->mergeConfigFrom($this->packagePath($this->CONFIG_PATH.'errors_management.php'), 'record_errors');
 
         $this->registerBladeExtensions();
     }
@@ -48,35 +55,32 @@ class ErrorsManagementProvider extends ServiceProvider
 
     private function loadRoutes()
     {
-        $routesPath = $this->packagePath('routes');
-        $this->loadRoutesFrom($routesPath, 'errors_management');
+        $routesPath = $this->packagePath($this->ROUTES_PATH.'web.php');
+        $this->loadRoutesFrom($routesPath);
     }
 
     private function loadViews()
     {
-        $viewsPath = $this->packagePath('../resources/views/errors-management');
+        $viewsPath = $this->packagePath($this->RESOURCE_PATH.'/views/errors-management');
         $this->loadViewsFrom($viewsPath, 'errors_management');
     }
 
     private function loadTranslations()
     {
-        $translationsPath = $this->packagePath('../resources/lang');
-
+        $translationsPath = $this->packagePath($this->RESOURCE_PATH.'lang');
         $this->loadTranslationsFrom($translationsPath, 'errors_management');
     }
 
     private function loadConfig()
     {
-        $configPath = $this->packagePath('config/errors_management.php');
-
+        $configPath = $this->packagePath($this->CONFIG_PATH.'errors_management.php');
         $this->mergeConfigFrom($configPath, 'errors_management');
     }
 
     private function loadMigrations()
     {
-        $configPath = $this->packagePath('../database/migrations');
-
-        $this->loadMigrationsFrom($configPath, 'errors_management');
+        $migrationsPath = $this->packagePath($this->DATABASE_PATH.'migrations');
+        $this->loadMigrationsFrom($migrationsPath);
 
     }
 
@@ -132,11 +136,56 @@ class ErrorsManagementProvider extends ServiceProvider
      */
     public function registerHelpers()
     {
-        $helpers = glob(__DIR__.'/Helpers/*.php');
+        $helpers = glob($this->packagePath('/Helpers/*.php'));
         foreach ($helpers as $helper) {
             if (file_exists($helper)) {
                 require_once $helper;
             }
+        }
+    }
+
+    /**
+     * Register resources.
+     *
+     * @return void
+     */
+    public function registerResources()
+    {
+        if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
+
+            $this->publishes(
+                [$this->packagePath($this->CONFIG_PATH.'errors_management.php') => config_path('record_errors.php')],
+                'errors_management:config'
+            );
+
+            $timestamp = date('Y_m_d_His', time());
+
+            if (!class_exists('CreateRecordErrorsTable')) {
+                $this->publishes(
+                    [$this->packagePath($this->DATABASE_PATH.'migrations/create_record_errors_table.php.stub') => database_path("migrations/{$timestamp}_create_record_errors_table.php")],
+                    'errors_management:migrations'
+                );
+            }
+
+            if (!class_exists('CreateVisitsTable')) {
+                $this->publishes(
+                    [$this->packagePath($this->DATABASE_PATH.'migrations/create_visits_table.php.stub') => database_path("migrations/{$timestamp}_create_visits_table.php")],
+                    'errors_management:migrations'
+                );
+            }
+
+            $this->publishes(
+                [
+                    $this->packagePath($this->RESOURCE_PATH.'views/errors-management') => resource_path('views/vendor/errors-management'),
+                    $this->packagePath($this->RESOURCE_PATH.'views/errors')            => resource_path('views/errors'),
+                ],
+                'errors_management:views'
+            );
+
+//            $this->publishes(
+//                [__DIR__.'/ErrorsManagementProvider.php' => app_path('/Providers/ErrorsManagementProvider.php')],
+//                'providers'
+//            );
         }
     }
 
@@ -150,75 +199,9 @@ class ErrorsManagementProvider extends ServiceProvider
         return Str::contains($this->app->version(), 'Lumen') === true;
     }
 
-
-    /**
-     * Register resources.
-     *
-     * @return void
-     */
-    public function registerResources()
-    {
-        if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
-
-            $this->publishes(
-                [$this->configPath('errors_management.php') => config_path('record_errors.php')],
-                'errors_management:config'
-            );
-
-            $timestamp = date('Y_m_d_His', time());
-
-            if (!class_exists('CreateRecordErrorsTable')) {
-                $this->publishes(
-                    [$this->databasePath('migrations/create_record_errors_table.php.stub') => database_path("migrations/{$timestamp}_create_record_errors_table.php")],
-                    'errors_management:migrations'
-                );
-            }
-
-            if (!class_exists('CreateVisitsTable')) {
-                $this->publishes(
-                    [$this->databasePath('migrations/create_visits_table.php.stub') => database_path("migrations/{$timestamp}_create_visits_table.php")],
-                    'errors_management:migrations'
-                );
-            }
-
-            $this->publishes(
-                [
-                    $this->resourcePath('views/errors-management') => resource_path('views/vendor/errors-management'),
-                    $this->resourcePath('views/errors')            => resource_path('views/errors'),
-                ],
-                'errors_management:views'
-            );
-
-//            $this->publishes(
-//                [__DIR__.'/ErrorsManagementProvider.php' => app_path('/Providers/ErrorsManagementProvider.php')],
-//                'providers'
-//            );
-        }
-    }
-
-
     private function packagePath($path)
     {
         return __DIR__."/$path";
     }
 
-    private function configPath($path)
-    {
-        return $this->packagePath("config/$path");
-    }
-
-    private function routesPath($path = null)
-    {
-        return $this->packagePath("routes/$path");
-    }
-
-    private function resourcePath($path = null)
-    {
-        return $this->packagePath("../resource/$path");
-    }
-
-    private function databasePath($path = null)
-    {
-        return $this->packagePath("../database/$path");
-    }
 }

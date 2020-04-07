@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', __("ErrorsManagement::trans.dashboard"))
+@section('title', __("dashboard"))
 
 @section('css')
 @endsection
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/errors-management')}}"><i class="fas fa-tachometer-alt"></i> {{__('errors_management::trans.home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url('/errors-management')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
     </ol>
 @stop
 
@@ -23,7 +23,7 @@
                     </a>
                   </span>
                     <div class="info-box-content">
-                        <span class="info-box-text"><a href="{{route('error-records',['code'=>$err['code']])}}">{{$err['code']}} Error Records</a></span>
+                        <span class="info-box-text"><a href="{{route('errors_management:records',['code'=>$err['code']])}}">{{$err['code']}} Error Records</a></span>
                         <span class="info-box-number"><i class="fas fa-fw fa-link"></i> {{Hayrullah\ErrorsManagement\Models\RecordError::Type($err['code'])->count()}}</span>
                         <span class="info-box-number"><i class="fas fa-fw fa-eye"></i> 0
 {{--                            {{ Hayrullah\ErrorsManagement\Models\ErrorsManagement::showVisits($err['code'])  }}--}}

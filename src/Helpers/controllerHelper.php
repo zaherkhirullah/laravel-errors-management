@@ -332,10 +332,10 @@ if (!function_exists('editorInfo')) {
         $output = '';
         $creator = $_page->createdBy ? $_page->createdBy->name : ' system ';
         $editor = $_page->updatedBy ? $_page->updatedBy->name : null;
-        $created_title = __('errors_management::trans.created_by', ['name' => $creator]);
-        $created_title_date = __('errors_management::trans.addition_date', ['date' => $_page->created_at]);
-        $modified_title = __('errors_management::trans.updated_by', ['name' => $editor]);
-        $modified_title_date = __('errors_management::trans.edition_date', ['date' => $_page->updated_at]);
+        $created_title = __('created_by', ['name' => $creator]);
+        $created_title_date = __('addition_date', ['date' => $_page->created_at]);
+        $modified_title = __('updated_by', ['name' => $editor]);
+        $modified_title_date = __('edition_date', ['date' => $_page->updated_at]);
 
         $output .= '';
         $output .= "<p class='user-date-info'><span data-toggle='tooltip' title='{$created_title}'> <i class='fas fa-plus-square'></i> ".hiddenSm($created_title).' </span>';
@@ -450,7 +450,7 @@ if (!function_exists('actionLinks')) {
         //    }
         if (auth()->check()) {
             $output = '';
-            $trans_edit = __('errors_management::trans.edit');
+            $trans_edit = __('edit');
             if ($prefix == null and $user_can_edit) {
                 $output = "<a href='javascript:void(0)' class='btn btn-primary w-100 btn-xs edit' id='{$row->id}'><i class='fas fa-pencil-alt'></i> {$trans_edit} </a>";
             } else {
@@ -459,7 +459,7 @@ if (!function_exists('actionLinks')) {
                 }
             }
             if ($user_can_delete) {
-                $trans_delete = __('errors_management::trans.delete');
+                $trans_delete = __('delete');
                 $output .= "<button class='btn btn-danger w-100 btn-xs delete' id='{$row->id}'><i class='fas fa-trash'></i> {$trans_delete} </button>";
             }
 
@@ -482,11 +482,11 @@ if (!function_exists('trashActionLinks')) {
         $output = '';
         if (auth()->check()) {
             if ($user_can_restore) {
-                $restore = __('errors_management::trans.restore');
+                $restore = __('restore');
                 $output = "<a href='javascript:void(0)' class='btn btn-info w-100 btn-xs btn-restore' id='{$row->id}'><i class='fas fa-trash-restore'></i> {$restore} </a>";
             }
             if ($user_can_force_delete) {
-                $force_delete = __('errors_management::trans.force_delete');
+                $force_delete = __('force_delete');
                 $output .= "<button class='btn bg-dark w-100 btn-xs btn-force-delete' id='{$row->id}'><i class='fas fa-fire-alt'></i> {$force_delete} </button>";
             }
         }
@@ -544,7 +544,7 @@ if (!function_exists('addTrashButton')) {
             if ($params) {
                 $href .= $params;
             }
-            $title = $title ?? __('errors_management::trans.button.deleted_records');
+            $title = $title ?? __('button.deleted_records');
             $id = $id ?? 'trash_data';
             $icon = $icon ?? 'fa-trash-alt';
         } else {
@@ -555,7 +555,7 @@ if (!function_exists('addTrashButton')) {
             if ($params) {
                 $href .= $params;
             }
-            $title = $title ?? __('errors_management::trans.button.active_records');
+            $title = $title ?? __('button.active_records');
             $id = $id ?? 'all_data';
             $icon = $icon ?? 'fa-list';
         }
@@ -578,12 +578,12 @@ if (!function_exists('activeRecordButton')) {
     {
         if (request()->has('active') and (request()->get('active') === 'false')) {
             $href = url("/admin/{$href}");
-            $title = $title ?? __('errors_management::trans.active_records');
+            $title = $title ?? __('active_records');
             $className = $calssName ?? 'btn-outline-info';
             $icon = 'fa-fw fa-check-circle';
         } else {
             $href = url("/admin/{$href}?active=false");
-            $title = $title ?? __('errors_management::trans.inactive_records');
+            $title = $title ?? __('inactive_records');
             $className = $calssName ?? 'btn-warning';
             $icon = 'fa-fw fa-times-circle';
         }
@@ -609,8 +609,8 @@ if (!function_exists('activeButton')) {
         } else {
             $checked = 'checked';
         }
-        $active = __('errors_management::trans.active').' <i class="fas fa-check"></i>';
-        $inactive = __('errors_management::trans.inactive').' <i class="fas fa-times"> </i>';
+        $active = __('active').' <i class="fas fa-check"></i>';
+        $inactive = __('inactive').' <i class="fas fa-times"> </i>';
 
         return "<div class='checkbox '>
       <!-- edit active button -->
@@ -634,8 +634,8 @@ if (!function_exists('copyBtn')) {
     {
         $className = $className ?? 'float-right';
 
-        return " <button class='btn border btn-light btn-clipboard {$className}' data-toggle='tooltip' data-clipboard-text='{$shorten_link}' title='".__('errors_management::trans.copy')."'>
-            <img src='".asset('img/clippy.svg')." ' width='17px' alt='".__('errors_management::trans.copy_to_clipboard')."'></button>";
+        return " <button class='btn border btn-light btn-clipboard {$className}' data-toggle='tooltip' data-clipboard-text='{$shorten_link}' title='".__('copy')."'>
+            <img src='".asset('img/clippy.svg')." ' width='17px' alt='".__('copy_to_clipboard')."'></button>";
     }
 }/*---------------------------------- </> --------------------------------*/
 
@@ -646,7 +646,7 @@ if (!function_exists('backButton')) {
     function backButton()
     {
         $url = url()->previous();
-        $title = __('errors_management::trans.back');
+        $title = __('back');
 
         return "<a href='$url' class=' btn btn-default float-right'> <i class='fas fa-fw fa-chevron-circle-left'></i> $title </a>";
     }
@@ -717,7 +717,7 @@ if (!function_exists('list_of_menu_error_items')) {
         foreach (list_of_error_codes() as $erra) {
             $items[] = [
                 'text'       => "{$erra['code']} Error Records ",
-                'url'        => "admin/error-records/{$erra['code']}",
+                'url'        => "errors-management/records/{$erra['code']}",
                 'icon_color' => "{$erra['color']}",
                 'icon'       => "{$erra['icon']}",
                 //     'can' => 'show-error-records'
