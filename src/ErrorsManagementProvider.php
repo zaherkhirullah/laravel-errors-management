@@ -50,7 +50,7 @@ class ErrorsManagementProvider extends ServiceProvider
             $this->registerCommands();
         }
 
-        $this->app->bind(Models\ErrorsManagement::class, $config['record_error']);
+        $this->app->bind(Models\RecordError::class, $config['record_error']);
         $this->app->bind(Models\Visit::class, $config['visits']);
     }
 

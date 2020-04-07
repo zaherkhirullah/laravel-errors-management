@@ -30,7 +30,7 @@ class RecordErrorController extends Controller
      */
     public function dashboard()
     {
-        return view('ErrorsManagement::dashboard');
+        return view('RecordError::dashboard');
     }
 
     /**
@@ -45,7 +45,7 @@ class RecordErrorController extends Controller
     public function index(Request $request, $code, $trash = null)
     {
         if (!check_user_authorize($this->permissionName, $trash)) {
-            return view('ErrorsManagement::errors.401');
+            return view('RecordError::errors.401');
         }
         $user_can_delete = is_can_delete($this->permissionName);
         $user_can_restore = is_can_restore($this->permissionName);
@@ -54,7 +54,7 @@ class RecordErrorController extends Controller
             abort(404);
         }
         if ($request->ajax()) {
-            $rows = ErrorsManagement::Type($code)->with('visits')->withCount('visits');
+            $rows = RecordError::Type($code)->with('visits')->withCount('visits');
             $rows = $trash ? $rows->onlyTrashed()->get() : $rows->get();
 
             $datatable = Datatables::of($rows);
@@ -123,9 +123,9 @@ class RecordErrorController extends Controller
 
         $user_can_delete = is_can_delete($this->permissionName);
 
-        $record = ErrorsManagement::findOrFail($id);
+        $record = RecordError::findOrFail($id);
         if ($request->ajax()) {
-//            $rows = ErrorsManagement::where('link', $row->link)->where('id', '!=', $id);
+//            $rows = RecordError::where('link', $row->link)->where('id', '!=', $id);
             $rows = $record->visits;
 
             return Datatables::of($rows)
@@ -187,7 +187,7 @@ class RecordErrorController extends Controller
             return response()->json($errors, 200);
         }
         if ($request->link !== $request->previous) {
-            $error = ErrorsManagement::where('link', $request->link)->first();
+            $error = RecordError::where('link', $request->link)->first();
             if (!$error) {
                 $error = new RecordError();
                 $error->code = $code;
@@ -235,7 +235,7 @@ class RecordErrorController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $row = ErrorsManagement::find($id);
+        $row = RecordError::find($id);
         if (!$row) {
             return response()->json('The item not found', 404);
         }
@@ -244,7 +244,7 @@ class RecordErrorController extends Controller
             return delete_record($row, $this->permissionName);
         }
         if ($request->withItems == true) {
-            ErrorsManagement::where('link', $row->link)->delete();
+            RecordError::where('link', $row->link)->delete();
         }
 
         return response()->json('The items has been "deleted" successfully', 200);
@@ -258,7 +258,7 @@ class RecordErrorController extends Controller
      */
     public function restore(Request $request, $id)
     {
-        $row = ErrorsManagement::withTrashed()->find($id);
+        $row = RecordError::withTrashed()->find($id);
         if (!$row) {
             return response()->json('The item not found', 404);
         }
@@ -267,7 +267,7 @@ class RecordErrorController extends Controller
             return restore_record($row, $this->permissionName);
         }
         if ($request->withItems == true) {
-            ErrorsManagement::onlyTrashed()->where('link', $row->link)->restore();
+            RecordError::onlyTrashed()->where('link', $row->link)->restore();
         }
 
         return response()->json('The items has been "restored" successfully', 200);
@@ -281,7 +281,7 @@ class RecordErrorController extends Controller
      */
     public function forceDelete(Request $request, $id)
     {
-        $row = ErrorsManagement::withTrashed()->find($id);
+        $row = RecordError::withTrashed()->find($id);
         if (!$row) {
             return response()->json('The item not found', 404);
         }
@@ -290,7 +290,7 @@ class RecordErrorController extends Controller
             return force_delete_record($row, $this->permissionName);
         }
         if ($request->withItems == true) {
-            ErrorsManagement::onlyTrashed()->where('link', $row->link)->forceDelete();
+            RecordError::onlyTrashed()->where('link', $row->link)->forceDelete();
         }
 
         return response()->json('The items has been "force Deleted" successfully', 200);
