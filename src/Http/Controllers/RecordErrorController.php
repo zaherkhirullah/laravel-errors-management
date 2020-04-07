@@ -123,45 +123,43 @@ class RecordErrorController extends Controller
 
         $user_can_delete = is_can_delete($this->permissionName);
 
-        $record = RecordError::findOrFail($id);
-        if ($request->ajax()) {
-//            $rows = RecordError::where('link', $row->link)->where('id', '!=', $id);
-            $rows = $record->visits;
-
-            return Datatables::of($rows)
-                ->addColumn('link', function ($row) use ($record) {
-                    $link = Str::limit($record->link, 60);
-
-                    return "<p><a href='{$record->link}'  target='_blank' data-toggle='tooltip' title='$record->link' style='word-break: break-all'>$link</a></p>";
-                })->addColumn('previous', function ($row) {
-                    $previous = Str::limit($row->previous, 60);
-
-                    return "<p><a href='{$row->previous}'  target='_blank' data-toggle='tooltip' title='$row->previous' style='word-break: break-all'>$previous</a></p>";
-                })
-                ->addColumn('created_at', function ($row) {
-                    return "<p class='text-center align-middle'><span>$row->created_at
-                </span></p>";
-                })
-                ->addColumn('action', function ($row) use ($user_can_delete) {
-                    $output = '';
-                    if ($user_can_delete) {
-                        $title = __('delete');
-                        $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete' id='$row->id'><i class='fas fa-trash'></i> $title</a>";
-                    }
-
-                    return $output;
-                })
-                ->rawColumns([
-                    'link'       => 'link',
-                    'previous'   => 'previous',
-                    'created_at' => 'created_at',
-                    'action'     => 'action',
-                ])
-                ->make(true);
+        $row = RecordError::findOrFail($id);
+        if (!$request->ajax()) {
+            return view('errors_management::show', compact('row', 'code'));
         }
-        $row = $record;
+//            $rows = RecordError::where('link', $row->link)->where('id', '!=', $id);
+        $rows = $row->visits;
 
-        return view('errors_management::show', compact('row', 'code'));
+        return Datatables::of($rows)
+            ->addColumn('link', function ($row) use ($row) {
+                $link = Str::limit($row->link, 60);
+
+                return "<p><a href='{$row->link}'  target='_blank' data-toggle='tooltip' title='$row->link' style='word-break: break-all'>$link</a></p>";
+            })->addColumn('previous', function ($row) {
+                $previous = Str::limit($row->previous, 60);
+
+                return "<p><a href='{$row->previous}'  target='_blank' data-toggle='tooltip' title='$row->previous' style='word-break: break-all'>$previous</a></p>";
+            })
+            ->addColumn('created_at', function ($row) {
+                return "<p class='text-center align-middle'><span>$row->created_at
+                </span></p>";
+            })
+            ->addColumn('action', function ($row) use ($user_can_delete) {
+                $output = '';
+                if ($user_can_delete) {
+                    $title = __('delete');
+                    $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete' id='$row->id'><i class='fas fa-trash'></i> $title</a>";
+                }
+
+                return $output;
+            })
+            ->rawColumns([
+                'link'       => 'link',
+                'previous'   => 'previous',
+                'created_at' => 'created_at',
+                'action'     => 'action',
+            ])
+            ->make(true);
     }
 
     /**
