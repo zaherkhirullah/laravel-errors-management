@@ -92,14 +92,14 @@ class ErrorsManagementProvider extends ServiceProvider
             $timestamp = date('Y_m_d_His', time());
             if (!class_exists('CreateRecordErrorsTable')) {
                 $this->publishes(
-                    [__DIR__.'/../database/migrations/2020_04_105050_create_record_errors_table.php' => database_path("migrations/{$timestamp}_create_record_errors_table.php")],
+                    [__DIR__.'/../database/migrations/create_record_errors_table.php.stub' => database_path("migrations/{$timestamp}_create_record_errors_table.php")],
                     'migrations'
                 );
             }
 
             if (!class_exists('CreateVisitsTable')) {
                 $this->publishes(
-                    [__DIR__.'/../database/migrations/2020_04_105051_create_visits_table.php' => database_path("migrations/{$timestamp}_create_visits_table.php")],
+                    [__DIR__.'/../database/migrations/create_visits_table.php.stub' => database_path("migrations/{$timestamp}_create_visits_table.php")],
                     'migrations'
                 );
             }
