@@ -30,7 +30,7 @@ class RecordErrorController extends Controller
      */
     public function dashboard()
     {
-        return view('ErrorManagement::dashboard');
+        return view('ErrorsManagement::dashboard');
     }
 
     /**
@@ -45,7 +45,7 @@ class RecordErrorController extends Controller
     public function index(Request $request, $code, $trash = null)
     {
         if (!check_user_authorize($this->permissionName, $trash)) {
-            return view('ErrorManagement::errors.401');
+            return view('ErrorsManagement::errors.401');
         }
         $user_can_delete = is_can_delete($this->permissionName);
         $user_can_restore = is_can_restore($this->permissionName);
@@ -112,7 +112,7 @@ class RecordErrorController extends Controller
             return $datatable->make(true);
         }
 
-        return view('ErrorManagement::index', compact('code'));
+        return view('ErrorsManagement::index', compact('code'));
     }
 
     public function show(Request $request, $code, $id)
@@ -161,7 +161,7 @@ class RecordErrorController extends Controller
         }
         $row = $record;
 
-        return view('ErrorManagement::show', compact('row', 'code'));
+        return view('ErrorsManagement::show', compact('row', 'code'));
     }
 
     /**

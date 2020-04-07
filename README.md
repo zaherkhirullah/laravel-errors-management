@@ -38,8 +38,8 @@ $ php artisan adminlte:install  --tag=main_views
 <i> Step 3 </i>
 
 ```   
-$ php artisan vendor:publish --provider="Hayrullah\ErrorsManagement\ErrorManagementProvider" --tag=config
-$ php artisan vendor:publish --provider="Hayrullah\ErrorsManagement\ErrorManagementProvider" --tag=views
+$ php artisan vendor:publish --provider="Hayrullah\ErrorsManagement\ErrorsManagementProvider" --tag=config
+$ php artisan vendor:publish --provider="Hayrullah\ErrorsManagement\ErrorsManagementProvider" --tag=views
 ```
 
 <i> Step 4 </i>

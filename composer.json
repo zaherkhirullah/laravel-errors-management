@@ -29,7 +29,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Hayrullah\\ErrorsManagement\\ErrorManagementProvider"
+        "Hayrullah\\ErrorsManagement\\ErrorsManagementProvider"
       ]
     }
   }
