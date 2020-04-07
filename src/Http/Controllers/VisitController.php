@@ -1,9 +1,9 @@
 <?php
 
-namespace Hayrullah\ErrorManagement\Http\Controllers;
+namespace Hayrullah\ErrorsManagement\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Hayrullah\ErrorManagement\Models\Visit;
+use Hayrullah\ErrorsManagement\Models\Visit;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 

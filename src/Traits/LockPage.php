@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorManagement\Traits;
+namespace Hayrullah\ErrorsManagement\Traits;
 
 use App\User;
 use Carbon\Carbon;

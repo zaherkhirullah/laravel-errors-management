@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::namespace('\Hayrullah\ErrorManagement\Http\Controllers')->group(function () {
+Route::namespace('\Hayrullah\ErrorsManagement\Http\Controllers')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('errors-management', 'RecordErrorController@dashboard')->name('error-records.dashboard');
         Route::get('error-records/{code}', 'RecordErrorController@index')->name('error-records');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorManagement;
+namespace Hayrullah\ErrorsManagement;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;

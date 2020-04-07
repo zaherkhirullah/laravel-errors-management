@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorManagement\Commands;
+namespace Hayrullah\ErrorsManagement\Commands;
 
 use Illuminate\Console\Command;
 

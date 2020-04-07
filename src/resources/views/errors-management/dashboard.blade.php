@@ -24,9 +24,9 @@
                   </span>
                     <div class="info-box-content">
                         <span class="info-box-text"><a href="{{route('error-records',['code'=>$err['code']])}}">{{$err['code']}} Error Records</a></span>
-                        <span class="info-box-number"><i class="fas fa-fw fa-link"></i> {{Hayrullah\ErrorManagement\Models\RecordError::Type($err['code'])->count()}}</span>
+                        <span class="info-box-number"><i class="fas fa-fw fa-link"></i> {{Hayrullah\ErrorsManagement\Models\RecordError::Type($err['code'])->count()}}</span>
                         <span class="info-box-number"><i class="fas fa-fw fa-eye"></i> 0
-{{--                            {{ Hayrullah\ErrorManagement\Models\RecordError::showVisits($err['code'])  }}--}}
+{{--                            {{ Hayrullah\ErrorsManagement\Models\RecordError::showVisits($err['code'])  }}--}}
                         </span>
                     </div>
                     <!-- /.info-box-content -->

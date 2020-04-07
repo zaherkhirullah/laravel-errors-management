@@ -13,7 +13,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'record_error' => Hayrullah\ErrorManagement\Models\RecordError::class,
+        'record_error' => Hayrullah\ErrorsManagement\Models\RecordError::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -24,9 +24,9 @@ return [
          * `Spatie\Permission\Contracts\Role` contract.
          */
 
-        'visits' => Hayrullah\ErrorManagement\Models\Visit::class,
+        'visits' => Hayrullah\ErrorsManagement\Models\Visit::class,
 
-        'has_visits' => Hayrullah\ErrorManagement\Traits\HasVisits::class,
+        'has_visits' => Hayrullah\ErrorsManagement\Traits\HasVisits::class,
 
     ],
 

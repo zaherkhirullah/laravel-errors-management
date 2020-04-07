@@ -1,10 +1,10 @@
 <?php
 
-namespace Hayrullah\ErrorManagement\Http\Controllers;
+namespace Hayrullah\ErrorsManagement\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Exception;
-use Hayrullah\ErrorManagement\Models\RecordError;
+use Hayrullah\ErrorsManagement\Models\RecordError;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
