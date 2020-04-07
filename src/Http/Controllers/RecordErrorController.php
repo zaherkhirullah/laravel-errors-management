@@ -82,20 +82,20 @@ class RecordErrorController extends Controller
                 if ($trash) {
                     $output = '';
                     if ($user_can_restore) {
-                        $title = __('backend.restore');
+                        $title = __('errors_management::trans.restore');
                         $output .= "<a href='#' class='btn btn-sm btn-info btn-block btn-restore' id='$row->id'><i class='fas fa-trash-restore'></i> $title  </a>";
                     }
                     if ($user_can_force_delete) {
-                        $title = __('backend.force_delete');
+                        $title = __('errors_management::trans.force_delete');
                         $output .= "<a href='#' class='btn btn-sm btn-warning btn-block btn-force-delete' id='$row->id'><i class='fas fa-fire-alt'></i>  $title </a>";
                     }
 
                     return $output;
                 }
-                $title = __('backend.report');
+                $title = __('errors_management::trans.report');
                 $output = "<a href='$url' class='btn btn-xs btn-info btn-block' id='$row->id'><i class='fas fa-eye'></i> $title </a>";
                 if ($user_can_delete) {
-                    $title = __('backend.delete');
+                    $title = __('errors_management::trans.delete');
                     $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete' id='{$row->id}'><i class='fas fa-trash'></i> $title </a>";
                 }
 
@@ -145,7 +145,7 @@ class RecordErrorController extends Controller
                 ->addColumn('action', function ($row) use ($user_can_delete) {
                     $output = '';
                     if ($user_can_delete) {
-                        $title = __('backend.delete');
+                        $title = __('errors_management::trans.delete');
                         $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete' id='$row->id'><i class='fas fa-trash'></i> $title</a>";
                     }
 

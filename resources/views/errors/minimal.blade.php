@@ -76,7 +76,7 @@
         </div>
     </div>
     <div class="home">
-        <a href="{{url('/')}}">{{__('backend.return_to_home')}}</a>
+        <a href="{{url('/')}}">{{__('errors_management::trans.return_to_home')}}</a>
     </div>
 </div>
 <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>

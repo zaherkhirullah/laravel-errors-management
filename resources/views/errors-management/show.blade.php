@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', " $code error link visits ||  ($row->link)")
+@section('title', " {$code} error link visits ||  ({$row->link})")
 
 @section('css')
 @endsection
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fas fa-tachometer-alt"></i> {{__('backend.home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{url('/admin/error-records')}}" class="no-link"> @yield('title') </a></li>
+        <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fas fa-tachometer-alt"></i> {{__('errors_management::trans.home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url("/errors-management/records/{$code}")}}" class="no-link"> @yield('title') </a></li>
     </ol>
 @stop
 
@@ -28,11 +28,11 @@
                    style="width:100%">
                 <thead>
                 <tr>
-                    <th> {{ __('backend.table.id') }}</th>
-                    <th> {{ __('backend.table.link') }}</th>
-                    <th> {{ __('backend.table.previous') }}</th>
-                    <th> {{ __('backend.table.visit_date') }}</th>
-                    <th> {{ __('backend.table.action') }}</th>
+                    <th> {{ __('errors_management::trans.table.id') }}</th>
+                    <th> {{ __('errors_management::trans.table.link') }}</th>
+                    <th> {{ __('errors_management::trans.table.previous') }}</th>
+                    <th> {{ __('errors_management::trans.table.visit_date') }}</th>
+                    <th> {{ __('errors_management::trans.table.action') }}</th>
                 </tr>
                 </thead>
             </table>
@@ -44,7 +44,7 @@
         $(document).ready(function () {
             <?php $TrashParam = has_trash_param() ? '?trash=true' : ''?>
             // init table
-            var _url = "{{ "/admin/error-records/$code/{$row->id}{$TrashParam}"}}";
+            var _url = "{{ "/errors-management/records/$code/{$row->id}{$TrashParam}"}}";
             var _columns = [
                 {data: "id", name: "id", width: "60", className: 'align-middle text-center'},
                 {data: "link", name: "link"},
@@ -69,7 +69,7 @@
             });
             //=======================================================================
 
-            _url = '{{url('/admin/visits')}}';
+            _url = '{{url('/visits')}}';
             // delete
             $(document).on('click', '.delete', function () {
                 let id = $(this).attr('id');

@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', __("backend.record.title",['code'=>$code]))
+@section('title', __('errors_management::trans.record.title',['code'=>$code]))
 
 @section('css')
 @endsection
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/admin/errors-management')}}"><i class="fas fa-tachometer-alt"></i> {{__('backend.home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{url("/admin/error-records/$code")}}" class="no-link"> @yield('title') </a></li>
+        <li class="breadcrumb-item"><a href="{{url('/errors-management')}}"><i class="fas fa-tachometer-alt"></i> {{__('errors_management::trans.home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url("/errors-management/records/{$code}")}}" class="no-link"> @yield('title') </a></li>
     </ol>
 @stop
 
@@ -28,12 +28,12 @@
                    style="width:100%">
                 <thead>
                 <tr>
-                    <th> {{ __('backend.table.id') }}</th>
-                    <th> {{ __('backend.table.title') }}</th>
-                    <th> {{ __('backend.table.previous') }}</th>
-                    <th> {{ __('backend.table.visits') }}</th>
-                    <th> {{ __('backend.table.last_visit') }}</th>
-                    <th> {{ __('backend.table.action') }}</th>
+                    <th> {{ __('errors_management::trans.table.id') }}</th>
+                    <th> {{ __('errors_management::trans.table.title') }}</th>
+                    <th> {{ __('errors_management::trans.table.previous') }}</th>
+                    <th> {{ __('errors_management::trans.table.visits') }}</th>
+                    <th> {{ __('errors_management::trans.table.last_visit') }}</th>
+                    <th> {{ __('errors_management::trans.table.action') }}</th>
                 </tr>
                 </thead>
             </table>
@@ -46,7 +46,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
                 <?php $TrashParam = has_trash_param()?>
-            var _url = "{{ "/admin{$TrashParam}/error-records/$code"}}";
+            var _url = "{{ "/errors-management{$TrashParam}/error-records/$code"}}";
             var _columns = [
                 {data: "id", name: "id", width: "60", className: 'align-middle text-center'},
                 {data: "link", name: "link"},
@@ -72,7 +72,7 @@
             });
             //=======================================================================
 
-            _url = '{{url('/admin/error-records')}}';
+            _url = '{{url('errors-management/records')}}';
             var _data = {withItems: true};
             // delete
             $(document).on('click', '.delete', function () {
