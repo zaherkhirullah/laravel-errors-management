@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/hayrullah/laravel-errors-management.svg?style=flat-square)](https://packagist.org/packages/hayrullah/laravel-errors-management)
 [![GitHub issues](https://img.shields.io/github/issues/zaherkhirullah/laravel-errors-management)](https://github.com/zaherkhirullah/laravel-errors-management/issues)
 [![GitHub forks](https://img.shields.io/github/forks/zaherkhirullah/laravel-errors-management)](https://github.com/zaherkhirullah/laravel-errors-management/network)
-[![GitHub stars](https://img.shields.io/github/stars/zaherkhirullah/laravel-errors-management)](https://github.com/zaherkhirullah/laravel-errors-management/stargazers)
+![PHP Composer](https://github.com/zaherkhirullah/laravel-errors-management/workflows/PHP%20Composer/badge.svg)
 [![GitHub license](https://img.shields.io/github/license/zaherkhirullah/laravel-errors-management)](https://github.com/zaherkhirullah/laravel-errors-management)
 [![Quality Score](https://img.shields.io/scrutinizer/g/zaherkhirullah/laravel-errors-management.svg?style=flat-square)](https://scrutinizer-ci.com/g/zaherkhirullah/laravel-errors-management)
 [![StyleCI](https://styleci.io/repos/253813301/shield)](https://styleci.io/repos/253813301)
