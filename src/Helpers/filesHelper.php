@@ -69,10 +69,10 @@ if (!function_exists('store_file')) {
 
 if (!function_exists('uploadImage')) {
     /**
-     * @param      $request
-     * @param      $field_name
-     * @param      $folder
-     * @param  null  $old_image
+     * @param   $request
+     * @param   $field_name
+     * @param   $folder
+     * @param null $old_image
      *
      * @return string
      */
@@ -122,11 +122,11 @@ if (!function_exists('uploadImages')) {
 
 if (!function_exists('attachFiles')) {
     /**
-     * @param      $request
-     * @param      $field_name
-     * @param      $folder
-     * @param  null  $row
-     * @param  null  $type
+     * @param   $request
+     * @param   $field_name
+     * @param   $folder
+     * @param null $row
+     * @param null $type
      *
      * @return array
      */
@@ -182,8 +182,8 @@ if (!function_exists('unlinkFile')) {
     /**
      * for delete file from directory.
      *
-     * @param $fileName  ( obj->file )
-     * @param $folderName  ('uploads/folderName')
+     * @param $fileName ( obj->file )
+     * @param $folderName ('uploads/folderName')
      */
     function unlinkFile($fileName, $folderName)
     {
@@ -202,7 +202,7 @@ if (!function_exists('unlinkFile')) {
 if (!function_exists('uploadFromTiny')) {
     /**
      * @param $request
-     * @param  string  $field_name
+     * @param string $field_name
      * @param $folder
      *
      * @return mixed

@@ -27,7 +27,7 @@ class RecordError extends Model
     }
 
     /**
-     * @param  int  $code
+     * @param int $code
      *
      * @return string
      */

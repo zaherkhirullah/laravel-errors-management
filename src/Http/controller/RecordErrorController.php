@@ -34,13 +34,13 @@ class RecordErrorController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param Request $request
      * @param $code
-     * @param  null  $trash
-     *
-     * @throws Exception
+     * @param null $trash
      *
      * @return Factory|View
+     * @throws Exception
+     *
      */
     public function index(Request $request, $code, $trash = null)
     {
@@ -165,7 +165,7 @@ class RecordErrorController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param Request $request
      *
      * @return bool|JsonResponse
      */
@@ -228,7 +228,7 @@ class RecordErrorController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param Request $request
      * @param $id
      *
      * @return JsonResponse
@@ -251,7 +251,7 @@ class RecordErrorController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param Request $request
      * @param $id
      *
      * @return JsonResponse
@@ -274,7 +274,7 @@ class RecordErrorController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param Request $request
      * @param $id
      *
      * @return JsonResponse

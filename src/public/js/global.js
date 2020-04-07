@@ -731,6 +731,7 @@ function turkishtoEnglish(val) {
         .replace('ö', 'o')
         .replace('ç', 'c');
 }
+
 // $(document).ready(function () {
 //     $('[data-toggle="tooltip"]').tooltip();
 //

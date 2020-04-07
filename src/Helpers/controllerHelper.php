@@ -23,7 +23,7 @@ if (!function_exists('get_auth_user')) {
 /*---------------------------------- </> --------------------------------*/
 if (!function_exists('user_avatar')) {
     /**
-     * @param  null  $user
+     * @param null $user
      *
      * @return mixed
      */
@@ -36,7 +36,7 @@ if (!function_exists('user_avatar')) {
 
 if (!function_exists('user_roles')) {
     /**
-     * @param  null  $user
+     * @param null $user
      *
      * @return mixed
      */
@@ -86,9 +86,9 @@ if (!function_exists('jsonOutput')) {
 
 if (!function_exists('callAPI')) {
     /**
-     * @param      $method
-     * @param      $url
-     * @param  null  $data
+     * @param   $method
+     * @param   $url
+     * @param null $data
      *
      * @return bool|string
      */
@@ -154,7 +154,7 @@ if (!function_exists('delete_record')) {
         if (!is_can_delete($permissionName)) {
             return response()->json("You don't have authorize to delete this item.", 401);
         }
-//        $item = ClassName($modelName)::find($id);
+//    $item = ClassName($modelName)::find($id);
         if ($item) {
             $item->delete();
 
@@ -178,7 +178,7 @@ if (!function_exists('restore_record')) {
         if (!is_can_restore($permissionName)) {
             return response()->json("You don't have authorize to restore this item.", 401);
         }
-//        $item = ClassName($modelName)::withTrashed()->find($id);
+//    $item = ClassName($modelName)::withTrashed()->find($id);
         if ($item) {
             $item->restore();
 
@@ -202,7 +202,7 @@ if (!function_exists('force_delete_record')) {
         if (!is_can_force_delete($permissionName)) {
             return response()->json("You don't have authorize to destroy this item.", 401);
         }
-//        $item = ClassName($modelName)::withTrashed()->find($id);
+//    $item = ClassName($modelName)::withTrashed()->find($id);
         if ($item) {
             $item->forceDelete();
 
@@ -216,11 +216,11 @@ if (!function_exists('force_delete_record')) {
 
 if (!function_exists('show_record')) {
     /**
-     * @param      $request
-     * @param      $modelName
-     * @param      $id
-     * @param      $permissionName
-     * @param  null  $with
+     * @param   $request
+     * @param   $modelName
+     * @param   $id
+     * @param   $permissionName
+     * @param null $with
      *
      * @return JsonResponse|void
      */
@@ -259,8 +259,8 @@ if (!function_exists('increment_visits')) {
     /**
      * increment visits.
      *
-     * @param        $row
-     * @param  string  $key  is $key_visits_slug
+     * @param    $row
+     * @param string $key is $key_visits_slug
      */
     function increment_visits($row, $key = 'page')
     {
@@ -276,8 +276,8 @@ if (!function_exists('increment_visits')) {
 
 if (!function_exists('json_not_found_item')) {
     /**
-     * @param  null  $item_or_page
-     * @param  null  $code
+     * @param null $item_or_page
+     * @param null $code
      *
      * @return JsonResponse
      */
@@ -339,9 +339,9 @@ if (!function_exists('editorInfo')) {
 
         $output .= '';
         $output .= "<p class='user-date-info'><span data-toggle='tooltip' title='{$created_title}'> <i class='fas fa-plus-square'></i> ".hiddenSm($created_title).' </span>';
-        $output .= " -  <span data-toggle='tooltip' title='{$created_title_date}'> <i class='fas fa-calendar-plus'></i> ".hiddenSm(optional($_page->created_at)->format('Y-m-d')).' </span></p>';
+        $output .= " - <span data-toggle='tooltip' title='{$created_title_date}'> <i class='fas fa-calendar-plus'></i> ".hiddenSm(optional($_page->created_at)->format('Y-m-d')).' </span></p>';
         if ($editor != null) {
-            $output .= "<p class='user-date-info'><span data-toggle='tooltip' title='{$modified_title}'>  <i class='fas fa-edit'></i> ".hiddenSm($modified_title).' </span>';
+            $output .= "<p class='user-date-info'><span data-toggle='tooltip' title='{$modified_title}'> <i class='fas fa-edit'></i> ".hiddenSm($modified_title).' </span>';
             $output .= " - <span data-toggle='tooltip' title='{$modified_title_date}'> <i class='fas fa-calendar'></i> ".hiddenSm(optional($_page->updated_at)->format('Y-m-d')).' </span></p>';
         }
 
@@ -362,7 +362,7 @@ if (!function_exists('trashInfo')) {
         $deletedBy = $_page->deletedBy ? $_page->deletedBy->name : ' system ';
         $output .= "<p class='user-date-info'>";
         $output .= " <span data-toggle='tooltip' title='تم حذفه بواسطة {$deletedBy}'> <i class='fas fa-trash'></i> ".hiddenSm('تم حذفه بواسطة :'.$deletedBy).' </span>';
-        $output .= " -  <span data-toggle='tooltip' title='تاريخ الحذف {$_page->deleted_at}'> <i class='fas fa-calendar-times'></i> ".hiddenSm('بتاريخ :'.optional($_page->deleted_at)->format('Y-m-d')).' </span>';
+        $output .= " - <span data-toggle='tooltip' title='تاريخ الحذف {$_page->deleted_at}'> <i class='fas fa-calendar-times'></i> ".hiddenSm('بتاريخ :'.optional($_page->deleted_at)->format('Y-m-d')).' </span>';
         $output .= '</p>';
 
         return $output;
@@ -372,8 +372,8 @@ if (!function_exists('trashInfo')) {
 
 if (!function_exists('hiddenSm')) {
     /**
-     * @param      $data
-     * @param  null  $className
+     * @param   $data
+     * @param null $className
      *
      * @return string
      */
@@ -388,10 +388,10 @@ if (!function_exists('hiddenSm')) {
 
 if (!function_exists('titleLink')) {
     /**
-     * @param        $prefix
-     * @param        $row
-     * @param        $can_edit
-     * @param  string  $attr
+     * @param    $prefix
+     * @param    $row
+     * @param    $can_edit
+     * @param string $attr
      *
      * @return string
      */
@@ -416,9 +416,9 @@ if (!function_exists('titleLink')) {
 
 if (!function_exists('slugLink')) {
     /**
-     * @param        $row
-     * @param  string  $prefix
-     * @param  null  $url
+     * @param    $row
+     * @param string $prefix
+     * @param null $url
      *
      * @return string
      */
@@ -427,35 +427,35 @@ if (!function_exists('slugLink')) {
         if (!$url) {
             $url = url($prefix.'/'.$row->slug);
         }
-        //        $fullLink=url($row->slug);
-        //        $output = "<a href='$url'  target='_blank' data-toggle='tooltip' title='{$fullLink}'>$row->slug</a>";
-        return "<a href='{$url}'  target='_blank' data-toggle='tooltip' title='زيارة  الرابط: {$row->slug}'>{$row->slug}</a>";
+        //    $fullLink=url($row->slug);
+        //    $output = "<a href='$url' target='_blank' data-toggle='tooltip' title='{$fullLink}'>$row->slug</a>";
+        return "<a href='{$url}' target='_blank' data-toggle='tooltip' title='زيارة الرابط: {$row->slug}'>{$row->slug}</a>";
     }
 }
 /*---------------------------------- </> --------------------------------*/
 
 if (!function_exists('actionLinks')) {
     /**
-     * @param      $row
-     * @param  null  $prefix
-     * @param      $user_can_edit
-     * @param      $user_can_delete
+     * @param   $row
+     * @param null $prefix
+     * @param   $user_can_edit
+     * @param   $user_can_delete
      *
      * @return string
      */
     function actionLinks($row, $prefix, $user_can_edit, $user_can_delete)
     {
-        //        if ($modelName == null) {
-        //            $modelName = str_replace('admin/', '', $prefix);
-        //        }
+        //    if ($modelName == null) {
+        //      $modelName = str_replace('admin/', '', $prefix);
+        //    }
         if (auth()->check()) {
             $output = '';
             $trans_edit = __('backend.edit');
             if ($prefix == null and $user_can_edit) {
-                $output = "<a href='javascript:void(0)'  class='btn btn-primary w-100 btn-xs edit' id='{$row->id}'><i class='fas fa-pencil-alt'></i> {$trans_edit} </a>";
+                $output = "<a href='javascript:void(0)' class='btn btn-primary w-100 btn-xs edit' id='{$row->id}'><i class='fas fa-pencil-alt'></i> {$trans_edit} </a>";
             } else {
                 if ($user_can_edit) {
-                    $output = "<a href='/{$prefix}/{$row->id}/edit'  class='btn btn-primary w-100 btn-xs edit' id='{$row->id}'><i class='fas fa-pencil-alt'></i> {$trans_edit} </a>";
+                    $output = "<a href='/{$prefix}/{$row->id}/edit' class='btn btn-primary w-100 btn-xs edit' id='{$row->id}'><i class='fas fa-pencil-alt'></i> {$trans_edit} </a>";
                 }
             }
             if ($user_can_delete) {
@@ -483,7 +483,7 @@ if (!function_exists('trashActionLinks')) {
         if (auth()->check()) {
             if ($user_can_restore) {
                 $restore = __('backend.restore');
-                $output = "<a href='javascript:void(0)'  class='btn btn-info w-100 btn-xs btn-restore' id='{$row->id}'><i class='fas fa-trash-restore'></i> {$restore} </a>";
+                $output = "<a href='javascript:void(0)' class='btn btn-info w-100 btn-xs btn-restore' id='{$row->id}'><i class='fas fa-trash-restore'></i> {$restore} </a>";
             }
             if ($user_can_force_delete) {
                 $force_delete = __('backend.force_delete');
@@ -509,24 +509,24 @@ if (!function_exists('addTableButton')) {
         $id = $id ?? 'add-btn';
         $icon = $icon ?? 'fa-plus';
         if (!$href) {
-            $output = "<button  class='btn btn-tool {$id}' name='{$name}' id='{$id}'>
-                    <i class='fas fa-fw {$icon} text-success'></i>
-                    {$title}
-                </button>
+            $output = "<button class='btn btn-tool {$id}' name='{$name}' id='{$id}'>
+          <i class='fas fa-fw {$icon} text-success'></i>
+          {$title}
+        </button>
 
-                    ";
+          ";
         } else {
-            $output = "<a href='{$href}' class='btn btn-tool {$id}'  id='{$id}'>
-                    <i class='fas {$icon} text-success'></i>
-                    {$title}
-                </a>";
+            $output = "<a href='{$href}' class='btn btn-tool {$id}' id='{$id}'>
+          <i class='fas {$icon} text-success'></i>
+          {$title}
+        </a>";
         }
-        //                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-        //                    <i class="fas fa-minus"></i>
-        //                  </button>
-        //                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-        //                    <i class="fas fa-times"></i>
-        //                  </button>
+        //         <button type="button" class="btn btn-tool" data-card-widget="collapse">
+        //          <i class="fas fa-minus"></i>
+        //         </button>
+        //         <button type="button" class="btn btn-tool" data-card-widget="remove">
+        //          <i class="fas fa-times"></i>
+        //         </button>
         return $output;
     }
 }
@@ -567,10 +567,10 @@ if (!function_exists('addTrashButton')) {
 
 if (!function_exists('activeRecordButton')) {
     /**
-     * @param      $permissionName
-     * @param  null  $href
-     * @param  null  $params
-     * @param  null  $className
+     * @param   $permissionName
+     * @param null $href
+     * @param null $params
+     * @param null $className
      *
      * @return string
      */
@@ -596,7 +596,7 @@ if (!function_exists('activeRecordButton')) {
         $id = $id ?? 'all_data';
         $icon = $icon ?? 'fa-fw fa-check-circle';
 
-        return "<div class=''> <a href='{$href}' class='btn {$className} mx-2' id='{$id}'> <i class='fas {$icon}'></i> {$title}  </a></div>";
+        return "<div class=''> <a href='{$href}' class='btn {$className} mx-2' id='{$id}'> <i class='fas {$icon}'></i> {$title} </a></div>";
     }
 }
 /*---------------------------------- </> --------------------------------*/
@@ -613,20 +613,20 @@ if (!function_exists('activeButton')) {
         $inactive = __('backend.inactive').' <i class="fas fa-times"> </i>';
 
         return "<div class='checkbox '>
-            <!-- edit active button  -->
-            <input type='checkbox' class='text-center align-middle' name='active' id='_active'
-                   data-toggle='toggle'
-                   data-on='{$active}' data-onstyle='success' data-off='{$inactive}' data-offstyle='danger' data-width='125' value='1' {$checked}>
-                 <!-- edit active button  -->
-                </div>";
+      <!-- edit active button -->
+      <input type='checkbox' class='text-center align-middle' name='active' id='_active'
+          data-toggle='toggle'
+          data-on='{$active}' data-onstyle='success' data-off='{$inactive}' data-offstyle='danger' data-width='125' value='1' {$checked}>
+         <!-- edit active button -->
+        </div>";
     }
 }
 /*---------------------------------- </> --------------------------------*/
 
 if (!function_exists('copyBtn')) {
     /**
-     * @param      $shorten_link
-     * @param  null  $className
+     * @param   $shorten_link
+     * @param null $className
      *
      * @return string
      */
@@ -635,7 +635,7 @@ if (!function_exists('copyBtn')) {
         $className = $className ?? 'float-right';
 
         return " <button class='btn border btn-light btn-clipboard {$className}' data-toggle='tooltip' data-clipboard-text='{$shorten_link}' title='".__('backend.copy')."'>
-                        <img src='".asset('img/clippy.svg')." ' width='17px' alt='".__('backend.copy_to_clipboard')."'></button>";
+            <img src='".asset('img/clippy.svg')." ' width='17px' alt='".__('backend.copy_to_clipboard')."'></button>";
     }
 }/*---------------------------------- </> --------------------------------*/
 
@@ -660,9 +660,9 @@ if (!function_exists('ClassName')) {
         if (strpos($modelName, '\\') === false) {
             $modelName = "\App\\{$modelName}";
         }
-        //  if(!(class_exists($modelName))) {
-        //      return "$modelName model Not Found.";
-        //  }
+        // if(!(class_exists($modelName))) {
+        //   return "$modelName model Not Found.";
+        // }
         return $modelName;
     }
 }
@@ -698,15 +698,15 @@ if (!function_exists('list_of_error_codes')) {
     function list_of_error_codes()
     {
         return config('record_errors.codes');
-//        return [
-//            ['code' => 401, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-warning', 'color' => 'warning'],
-//            ['code' => 403, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-blue', 'color' => 'blue'],
-//            ['code' => 404, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
-//            ['code' => 419, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-secondary', 'color' => 'secondary'],
-//            ['code' => 429, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-dark', 'color' => 'dark'],
-//            ['code' => 500, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
-//            ['code' => 503, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-info', 'color' => 'info'],
-//        ];
+//    return [
+//      ['code' => 401, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-warning', 'color' => 'warning'],
+//      ['code' => 403, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-blue', 'color' => 'blue'],
+//      ['code' => 404, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
+//      ['code' => 419, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-secondary', 'color' => 'secondary'],
+//      ['code' => 429, 'icon' => 'fas fa-fas fa-fw fa-exclamation-circle', 'bg-color' => 'bg-dark', 'color' => 'dark'],
+//      ['code' => 500, 'icon' => 'fas fa-fas fa-fw fa-exclamation-triangle', 'bg-color' => 'bg-danger', 'color' => 'danger'],
+//      ['code' => 503, 'icon' => 'fas fa-fas fa-fw fa-exclamation', 'bg-color' => 'bg-info', 'color' => 'info'],
+//    ];
     }
 }
 /*---------------------------------- </> --------------------------------*/
@@ -720,7 +720,7 @@ if (!function_exists('list_of_menu_error_items')) {
                 'url' => "admin/error-records/{$erra['code']}",
                 'icon_color' => "{$erra['color']}",
                 'icon' => "{$erra['icon']}",
-                //         'can' => 'show-error-records'
+                //     'can' => 'show-error-records'
             ];
         }
 

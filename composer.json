@@ -1,35 +1,35 @@
 {
-    "name": "hayrullah/laravel-errors-management",
-    "description": "404/500 Error record links and management Errors",
-    "type": "library",
-    "license": "MIT",
-    "minimum-stability": "dev",
-    "authors": [
-        {
-            "name": "zahir hayrullah",
-            "email": "info@zaherr.com"
-        }
-    ],
-    "require": {
-        "php": ">=7.2.0",
-        "torann/geoip": "^1.2",
-        "jeroennoten/laravel-adminlte": "^3.1",
-        "yajra/laravel-datatables-oracle": "^9.7"
-    },
-    "require-dev": {
-        "laravel/ui": "^2.0",
-        "phpunit/phpunit": "8.5.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Hayrullah\\ErrorManagement\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Hayrullah\\ErrorManagement\\ErrorManagementProvider"
-            ]
-        }
+  "name": "hayrullah/laravel-errors-management",
+  "description": "404/500 Error record links and management Errors",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "zahir hayrullah",
+      "email": "info@zaherr.com"
     }
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "torann/geoip": "^1.2",
+    "jeroennoten/laravel-adminlte": "^3.1",
+    "yajra/laravel-datatables-oracle": "^9.7"
+  },
+  "require-dev": {
+    "laravel/ui": "^2.0",
+    "phpunit/phpunit": "8.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hayrullah\\ErrorManagement\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Hayrullah\\ErrorManagement\\ErrorManagementProvider"
+      ]
+    }
+  }
 }
