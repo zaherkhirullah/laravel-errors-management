@@ -232,7 +232,6 @@ class RecordErrorController extends Controller
     {
         $row = RecordError::find($id);
         if (!$row) {
-
             return response()->json('The item not found', 404);
         }
         if ($request->withItems == true) {
@@ -266,7 +265,6 @@ class RecordErrorController extends Controller
 
         // get all rows in the same link and delete all of theme
         return restore_record($row, $this->permissionName);
-
     }
 
     /**
