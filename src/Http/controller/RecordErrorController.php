@@ -312,8 +312,7 @@ class RecordErrorController extends Controller
             case '500':
             case '503':
                 return true;
-            default:
-                return false;
         }
+        return false;
     }
 }
