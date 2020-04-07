@@ -83,6 +83,7 @@ class ErrorsManagementProvider extends ServiceProvider
     public function registerResources()
     {
         if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
+
             $this->publishes(
                 [__DIR__.'/../config/record_errors.php' => config_path('record_errors.php')],
                 'config'
