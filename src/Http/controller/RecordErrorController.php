@@ -38,9 +38,9 @@ class RecordErrorController extends Controller
      * @param $code
      * @param  null  $trash
      *
-     * @return Factory|View
      * @throws Exception
      *
+     * @return Factory|View
      */
     public function index(Request $request, $code, $trash = null)
     {
