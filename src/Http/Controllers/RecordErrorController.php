@@ -171,22 +171,16 @@ class RecordErrorController extends Controller
      */
     public function store(Request $request, $code)
     {
-        if (!$this->allowed_code($code)) {
+        if (!$this->allowed_code($code) or $request->ajax()) {
             abort(404);
         }
-        if (!$request->ajax()) {
-            return false;
-        }
+
         $validation = Validator::make($request->all(), [
             'link'     => 'required',
             'previous' => 'required',
         ]);
-        if ($validation->fails()) {
-            $errors = jsonOutput(getArrayValidationErrors($validation));
 
-            return response()->json($errors, 200);
-        }
-        if ($request->link !== $request->previous) {
+        if (!$validation->fails()) {
             $error = RecordError::where('link', $request->link)->first();
             if (!$error) {
                 $error = new RecordError();
@@ -196,18 +190,21 @@ class RecordErrorController extends Controller
                 $error->save();
             }
             $error->createVisit($request);
-        }
 
-        return response()->json(jsonOutput([], 'success'), 200);
+            return response()->json(jsonOutput([], 'success'), 200);
+        }
+        $errors = jsonOutput(getArrayValidationErrors($validation));
+
+        return response()->json($errors, 200);
     }
 
-    /**
-     * get full src name.
-     *
-     * @param $full_src
-     *
-     * @return string
-     */
+//    /**
+//     * get full src name.
+//     *
+//     * @param $full_src
+//     *
+//     * @return string
+//     */
 //    private function getFullSrc($full_src)
 //    {
 //        if (strpos($full_src, 'gclid=') !== false) {
