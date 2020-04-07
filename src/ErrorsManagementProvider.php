@@ -77,9 +77,7 @@ class ErrorsManagementProvider extends ServiceProvider
         $configPath = $this->packagePath('../database/migrations');
 
         $this->loadMigrationsFrom($configPath, 'errors_management');
-
     }
-
 
     protected function registerModels()
     {
@@ -150,7 +148,6 @@ class ErrorsManagementProvider extends ServiceProvider
         return Str::contains($this->app->version(), 'Lumen') === true;
     }
 
-
     /**
      * Register resources.
      *
@@ -195,7 +192,6 @@ class ErrorsManagementProvider extends ServiceProvider
 //            );
         }
     }
-
 
     private function packagePath($path)
     {
