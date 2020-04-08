@@ -117,7 +117,7 @@ function submitForm(_url, _formId = null, _data = null) {
 }
 
 // Delete Item Functions
-function deleteItem(_url, id, redirect = null, reloadTableNames = null, _title = '', _text = null, _type = null) {
+function deleteItem(_url, id, data = null, redirect = null, reloadTableNames = null, _title = '', _text = null, _type = null) {
     if (_text == null) _text = "Are you sure to delete this record? ";
     if (_type == null) _type = 'warning';
     Swal.fire({
@@ -135,9 +135,10 @@ function deleteItem(_url, id, redirect = null, reloadTableNames = null, _title =
                     url: _url + '/' + id,
                     type: "delete",
                     dataType: "json",
-                    data: {
-                        _token: $('meta[name="csrf-token"]').attr('content')
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
+                    data: data,
                     success: function (data) {
                         reloadTable('', reloadTableNames);
                         showSwalMessage("Has been deleted successfully");
@@ -162,7 +163,7 @@ function deleteItem(_url, id, redirect = null, reloadTableNames = null, _title =
 //=======================================================================
 
 // Restore Item Functions
-function restoreItem(_url, id, redirect = null, reloadTableNames = null, _title = '', _text = null, _type = null) {
+function restoreItem(_url, id, data = null, redirect = null, reloadTableNames = null, _title = '', _text = null, _type = null) {
     if (_title == '') _title = "Restore a record";
     if (_text == null) _text = "Are you sure you want to restore this record? ";
     if (_type == null) _type = 'warning';
@@ -181,9 +182,10 @@ function restoreItem(_url, id, redirect = null, reloadTableNames = null, _title 
                     url: _url + '/restore/' + id,
                     type: "post",
                     dataType: "json",
-                    data: {
-                        _token: $('meta[name="csrf-token"]').attr('content')
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
+                    data: data,
                     success: function (data) {
                         reloadTable('', reloadTableNames);
                         showSwalMessage("Has been restored successfully !");
@@ -208,7 +210,7 @@ function restoreItem(_url, id, redirect = null, reloadTableNames = null, _title 
 //=======================================================================
 
 // ForceDelete Item Functions
-function forceDeleteItem(_url, id, redirect = null, reloadTableNames = null, _title = '', _text = null, _type = null) {
+function forceDeleteItem(_url, id, data = null, redirect = null, reloadTableNames = null, _title = '', _text = null, _type = null) {
     if (_title == '') _title = "Delete forever";
     if (_text == null) _text = "Are you sure you want to permanently delete this record? ";
     if (_type == null) _type = 'warning';
@@ -227,9 +229,10 @@ function forceDeleteItem(_url, id, redirect = null, reloadTableNames = null, _ti
                     url: _url + '/force-delete/' + id,
                     type: "post",
                     dataType: "json",
-                    data: {
-                        _token: $('meta[name="csrf-token"]').attr('content')
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
+                    data: data,
                     success: function (data) {
                         reloadTable('', reloadTableNames);
                         showSwalMessage("Has been force deleted successfully !");

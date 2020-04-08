@@ -84,20 +84,20 @@ class LemController extends Controller
                     $output = '';
                     if ($user_can_restore) {
                         $title = __('restore');
-                        $output .= "<a href='#' class='btn btn-sm btn-info btn-block btn-restore' id='$row->id'><i class='fas fa-trash-restore'></i> $title  </a>";
+                        $output .= "<a href='#' class='btn btn-sm btn-info btn-block btn-restore text-capitalize' id='$row->id'><i class='fas fa-trash-restore'></i> $title  </a>";
                     }
                     if ($user_can_force_delete) {
                         $title = __('force_delete');
-                        $output .= "<a href='#' class='btn btn-sm btn-warning btn-block btn-force-delete' id='$row->id'><i class='fas fa-fire-alt'></i>  $title </a>";
+                        $output .= "<a href='#' class='btn btn-sm btn-warning btn-block btn-force-delete text-capitalize' id='$row->id'><i class='fas fa-fire-alt'></i>  $title </a>";
                     }
 
                     return $output;
                 }
                 $title = __('report');
-                $output = "<a href='$url' class='btn btn-xs btn-info btn-block' id='$row->id'><i class='fas fa-eye'></i> $title </a>";
+                $output = "<a href='$url' class='btn btn-xs btn-info btn-block text-capitalize' id='$row->id'><i class='fas fa-eye'></i> $title </a>";
                 if ($user_can_delete) {
                     $title = __('delete');
-                    $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete' id='{$row->id}'><i class='fas fa-trash'></i> $title </a>";
+                    $output .= "<a href='#' class='btn btn-xs btn-danger btn-block delete text-capitalize' id='{$row->id}'><i class='fas fa-trash'></i> $title </a>";
                 }
 
                 return $output;

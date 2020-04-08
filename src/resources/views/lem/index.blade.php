@@ -45,6 +45,7 @@
 @section('js')
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="{{asset('vendor/lem/js/global.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
