@@ -125,7 +125,7 @@ class RecordErrorController extends Controller
 
         $record = RecordError::findOrFail($id);
         if (!$request->ajax()) {
-            return view('errors_management::show', compact('code'))->with(['row'=>$record]);
+            return view('errors_management::show', compact('code'))->with(['row' => $record]);
         }
 //            $rows = RecordError::where('link', $row->link)->where('id', '!=', $id);
         $rows = $record->visits;
