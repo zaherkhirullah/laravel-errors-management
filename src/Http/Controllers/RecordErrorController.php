@@ -293,6 +293,20 @@ class RecordErrorController extends Controller
     /**
      * @param $code
      *
+     * @return void
+     */
+    public function example($code)
+    {
+        if ($this->allowed_code($code)) {
+            abort($code);
+        }
+
+        abort(404);
+    }
+
+    /**
+     * @param $code
+     *
      * @return bool
      */
     private function allowed_code($code)

@@ -8,7 +8,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{url("/errors-management/records/{$code}")}}" class="no-link"> @yield('title') </a></li>
+        <li class="breadcrumb-item"><a href="{{url("/lem/records/{$code}")}}" class="no-link"> @yield('title') </a></li>
     </ol>
 @stop
 
@@ -44,7 +44,7 @@
         $(document).ready(function () {
             <?php $TrashParam = has_trash_param() ? '?trash=true' : ''?>
             // init table
-            var _url = "{{ "/errors-management/records/$code/{$row->id}{$TrashParam}"}}";
+            var _url = "{{ "/lem/records/$code/{$row->id}{$TrashParam}"}}";
             var _columns = [
                 {data: "id", name: "id", width: "60", className: 'align-middle text-center'},
                 {data: "link", name: "link"},

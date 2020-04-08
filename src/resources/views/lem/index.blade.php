@@ -8,8 +8,8 @@
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/errors-management')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{url("/errors-management/records/{$code}")}}" class="no-link"> @yield('title') </a></li>
+        <li class="breadcrumb-item"><a href="{{url('/lem')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url("/lem/records/{$code}")}}" class="no-link"> @yield('title') </a></li>
     </ol>
 @stop
 
@@ -43,11 +43,13 @@
 @stop
 
 @section('js')
-    <script src="{{asset('vendor/errors-management/js/global.js')}}"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{asset('vendor/lem/js/global.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
                 <?php $TrashParam = has_trash_param()?>
-            var _url = "{{ "/errors-management{$TrashParam}/records/$code"}}";
+            var _url = "{{ "/lem{$TrashParam}/records/$code"}}";
             var _columns = [
                 {data: "id", name: "id", width: "60", className: 'align-middle text-center'},
                 {data: "link", name: "link"},
@@ -73,7 +75,7 @@
             });
             //=======================================================================
 
-            _url = '{{url('errors-management/records')}}';
+            _url = '{{url('lem/records')}}';
             var _data = {withItems: true};
             // delete
             $(document).on('click', '.delete', function () {

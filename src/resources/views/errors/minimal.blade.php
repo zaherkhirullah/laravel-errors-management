@@ -88,7 +88,7 @@
 <script>
     $(document).ready(function () {
         $.ajax({
-            url: '{{ url("errors-management/ajax/record/$code") }}',
+            url: '{{ url("lem/ajax/record/$code") }}',
             type: 'POST',
             cache: false,
             data: {

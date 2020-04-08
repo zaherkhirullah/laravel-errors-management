@@ -7,7 +7,7 @@
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/errors-management')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url('/lem')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
     </ol>
 @stop
 
@@ -18,12 +18,12 @@
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="info-box mb-3">
                   <span class="info-box-icon {{isset($err['bg-color'])?$err['bg-color']:"bg-danger"}} elevation-1">
-                      <a href="{{route('errors_management:records',['code'=>$err['code']])}}">
+                      <a href="{{route('lem.records',['code'=>$err['code']])}}">
                        <i class="{{$err['icon']}}"></i>
                     </a>
                   </span>
                     <div class="info-box-content">
-                        <span class="info-box-text"><a href="{{route('errors_management:records',['code'=>$err['code']])}}">{{$err['code']}} Error Records</a></span>
+                        <span class="info-box-text"><a href="{{route('lem.records',['code'=>$err['code']])}}">{{$err['code']}} Error Records</a></span>
                         <span class="info-box-number"><i class="fas fa-fw fa-link"></i> {{Hayrullah\ErrorsManagement\Models\RecordError::Type($err['code'])->count()}}</span>
                         <span class="info-box-number"><i class="fas fa-fw fa-eye"></i> 0
 {{--                            {{ Hayrullah\ErrorsManagement\Models\ErrorsManagement::showVisits($err['code'])  }}--}}
@@ -39,7 +39,7 @@
 @stop
 
 @section('js')
-    <script src="{{asset('vendor/errors-management/js/global.js')}}"></script>
+    <script src="{{asset('vendor/lem/js/global.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 

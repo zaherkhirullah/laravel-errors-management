@@ -61,26 +61,26 @@ class ErrorsManagementProvider extends ServiceProvider
 
     private function loadAssets()
     {
-        $viewsPath = $this->packagePath($this->RESOURCE_PATH.'/assets/errors-management');
-        $this->loadViewsFrom($viewsPath, 'errors_management');
+        $viewsPath = $this->packagePath($this->RESOURCE_PATH.'/assets/lem');
+        $this->loadViewsFrom($viewsPath, 'lem');
     }
 
     private function loadViews()
     {
-        $viewsPath = $this->packagePath($this->RESOURCE_PATH.'/views/errors-management');
-        $this->loadViewsFrom($viewsPath, 'errors_management');
+        $viewsPath = $this->packagePath($this->RESOURCE_PATH.'/views/lem');
+        $this->loadViewsFrom($viewsPath, 'lem');
     }
 
     private function loadTranslations()
     {
         $translationsPath = $this->packagePath($this->RESOURCE_PATH.'lang');
-        $this->loadTranslationsFrom($translationsPath, 'errors_management');
+        $this->loadTranslationsFrom($translationsPath, 'lem');
     }
 
     private function loadConfig()
     {
-        $configPath = $this->packagePath($this->CONFIG_PATH.'errors_management.php');
-        $this->mergeConfigFrom($configPath, 'errors_management');
+        $configPath = $this->packagePath($this->CONFIG_PATH.'lem.php');
+        $this->mergeConfigFrom($configPath, 'lem');
         $configPath = $this->packagePath($this->CONFIG_PATH.'adminlte.php');
         $this->mergeConfigFrom($configPath, 'adminlte');
     }
@@ -93,7 +93,7 @@ class ErrorsManagementProvider extends ServiceProvider
 
     protected function registerModels()
     {
-        $config = $this->app->config['errors_management.models'];
+        $config = $this->app->config['lem.models'];
 
         if (!$config) {
             return;
@@ -161,7 +161,7 @@ class ErrorsManagementProvider extends ServiceProvider
 
             $this->publishes(
                 [
-                    $this->packagePath($this->CONFIG_PATH.'errors_management.php') => config_path('record_errors.php'),
+                    $this->packagePath($this->CONFIG_PATH.'lem.php') => config_path('lem.php'),
                     $this->packagePath($this->CONFIG_PATH.'adminlte.php')          => config_path('adminlte.php'),
                 ],
                 'lem-config'
@@ -177,12 +177,12 @@ class ErrorsManagementProvider extends ServiceProvider
 
             // publish js and css files - vue-file-manager module
             $this->publishes([
-                $this->packagePath($this->RESOURCE_PATH.'assets/') => public_path('vendor/errors-management'),
+                $this->packagePath($this->RESOURCE_PATH.'assets/') => public_path('vendor/lem'),
             ], 'lem-assets');
 
             $this->publishes(
                 [
-                    $this->packagePath($this->RESOURCE_PATH.'views/errors-management') => resource_path('views/vendor/errors-management'),
+                    $this->packagePath($this->RESOURCE_PATH.'views/lem') => resource_path('views/vendor/lem'),
                     $this->packagePath($this->RESOURCE_PATH.'views/errors')            => resource_path('views/errors'),
                 ],
                 'lem-views'
