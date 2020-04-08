@@ -161,7 +161,7 @@ class LemProvider extends ServiceProvider
 
             $this->publishes(
                 [
-                    $this->packagePath($this->CONFIG_PATH.'lem.php') => config_path('lem.php'),
+                    $this->packagePath($this->CONFIG_PATH.'lem.php')               => config_path('lem.php'),
                     $this->packagePath($this->CONFIG_PATH.'adminlte.php')          => config_path('adminlte.php'),
                 ],
                 'lem-config'
@@ -182,7 +182,7 @@ class LemProvider extends ServiceProvider
 
             $this->publishes(
                 [
-                    $this->packagePath($this->RESOURCE_PATH.'views/lem') => resource_path('views/vendor/lem'),
+                    $this->packagePath($this->RESOURCE_PATH.'views/lem')               => resource_path('views/vendor/lem'),
                     $this->packagePath($this->RESOURCE_PATH.'views/errors')            => resource_path('views/errors'),
                 ],
                 'lem-views'
