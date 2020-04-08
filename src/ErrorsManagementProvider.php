@@ -159,11 +159,10 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
 
-
             $this->publishes(
                 [
                     $this->packagePath($this->CONFIG_PATH.'errors_management.php') => config_path('record_errors.php'),
-                    $this->packagePath($this->CONFIG_PATH.'adminlte.php')          => config_path('adminlte.php')
+                    $this->packagePath($this->CONFIG_PATH.'adminlte.php')          => config_path('adminlte.php'),
                 ],
                 'lem-config'
             );
@@ -171,7 +170,7 @@ class ErrorsManagementProvider extends ServiceProvider
             $this->publishes(
                 [
                     $this->packagePath($this->DATABASE_PATH.'migrations/create_record_errors_table.php.stub') => $this->getMigrationFileName($filesystem, 'create_record_errors_table.php'),
-                    $this->packagePath($this->DATABASE_PATH.'migrations/create_visits_table.php.stub')        => $this->getMigrationFileName($filesystem, 'create_visits_table.php')
+                    $this->packagePath($this->DATABASE_PATH.'migrations/create_visits_table.php.stub')        => $this->getMigrationFileName($filesystem, 'create_visits_table.php'),
                 ],
                 'lem-migrations'
             );
@@ -196,12 +195,10 @@ class ErrorsManagementProvider extends ServiceProvider
         }
     }
 
-
     private function packagePath($path)
     {
         return __DIR__."/$path";
     }
-
 
     /**
      * Returns existing migration file if found, else uses the current timestamp.
