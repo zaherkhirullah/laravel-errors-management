@@ -61,8 +61,9 @@
             position: absolute;
             margin-top: 50px;
         }
+
         .px-2 {
-            margin:0 10px;
+            margin: 0 10px;
         }
     </style>
 </head>
@@ -83,11 +84,11 @@
         <a href="{{url('/')}}" class="px-2">{{__('Go to home')}}</a>
     </div>
 </div>
-<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
     $(document).ready(function () {
         $.ajax({
-            url: '{{ url("ajax/error-record/$code") }}',
+            url: '{{ url("errors-management/ajax/error-record/$code") }}',
             type: 'POST',
             cache: false,
             data: {

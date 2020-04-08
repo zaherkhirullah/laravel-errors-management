@@ -24,9 +24,6 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         $this->registerHelpers();
 
-        $this->mergeConfigFrom($this->packagePath($this->CONFIG_PATH.'errors_management.php'), 'record_errors');
-        $this->mergeConfigFrom($this->packagePath($this->CONFIG_PATH.'adminlte.php'), 'adminlte');
-
         $this->registerBladeExtensions();
     }
 
@@ -38,6 +35,8 @@ class ErrorsManagementProvider extends ServiceProvider
     public function boot(Filesystem $filesystem)
     {
         $this->loadRoutes();
+
+        $this->loadAssets();
 
         $this->loadViews();
 
@@ -60,6 +59,12 @@ class ErrorsManagementProvider extends ServiceProvider
         $this->loadRoutesFrom($routesPath);
     }
 
+    private function loadAssets()
+    {
+        $viewsPath = $this->packagePath($this->RESOURCE_PATH.'/assets/errors-management');
+        $this->loadViewsFrom($viewsPath, 'errors_management');
+    }
+
     private function loadViews()
     {
         $viewsPath = $this->packagePath($this->RESOURCE_PATH.'/views/errors-management');
@@ -76,6 +81,8 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         $configPath = $this->packagePath($this->CONFIG_PATH.'errors_management.php');
         $this->mergeConfigFrom($configPath, 'errors_management');
+        $configPath = $this->packagePath($this->CONFIG_PATH.'adminlte.php');
+        $this->mergeConfigFrom($configPath, 'adminlte');
     }
 
     private function loadMigrations()
@@ -152,29 +159,34 @@ class ErrorsManagementProvider extends ServiceProvider
     {
         if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
 
+
             $this->publishes(
                 [
                     $this->packagePath($this->CONFIG_PATH.'errors_management.php') => config_path('record_errors.php'),
                     $this->packagePath($this->CONFIG_PATH.'adminlte.php')          => config_path('adminlte.php')
                 ],
-                'errors_management:config'
+                'lem-config'
             );
 
-            $timestamp = date('Y_m_d_His', time());
             $this->publishes(
                 [
                     $this->packagePath($this->DATABASE_PATH.'migrations/create_record_errors_table.php.stub') => $this->getMigrationFileName($filesystem, 'create_record_errors_table.php'),
                     $this->packagePath($this->DATABASE_PATH.'migrations/create_visits_table.php.stub')        => $this->getMigrationFileName($filesystem, 'create_visits_table.php')
                 ],
-                'errors_management:migrations'
+                'lem-migrations'
             );
+
+            // publish js and css files - vue-file-manager module
+            $this->publishes([
+                $this->packagePath($this->RESOURCE_PATH.'assets/') => public_path('vendor/errors-management'),
+            ], 'lem-assets');
 
             $this->publishes(
                 [
                     $this->packagePath($this->RESOURCE_PATH.'views/errors-management') => resource_path('views/vendor/errors-management'),
                     $this->packagePath($this->RESOURCE_PATH.'views/errors')            => resource_path('views/errors'),
                 ],
-                'errors_management:views'
+                'lem-views'
             );
 
 //            $this->publishes(

@@ -169,7 +169,7 @@ class RecordErrorController extends Controller
      */
     public function store(Request $request, $code)
     {
-        if (!$this->allowed_code($code) or $request->ajax()) {
+        if (!$this->allowed_code($code) or !$request->ajax()) {
             abort(404);
         }
 
