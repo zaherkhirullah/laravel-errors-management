@@ -2,6 +2,8 @@
 
 namespace Hayrullah\ErrorsManagement;
 
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -11,7 +13,7 @@ class ErrorsManagementProvider extends ServiceProvider
     protected $CONFIG_PATH = 'config/';
     protected $ROUTES_PATH = 'routes/';
     protected $RESOURCE_PATH = 'resources/';
-    protected $DATABASE_PATH = 'database/';
+    protected $DATABASE_PATH = '../database/';
 
     /**
      * Register services.
@@ -23,6 +25,7 @@ class ErrorsManagementProvider extends ServiceProvider
         $this->registerHelpers();
 
         $this->mergeConfigFrom($this->packagePath($this->CONFIG_PATH.'errors_management.php'), 'record_errors');
+        $this->mergeConfigFrom($this->packagePath($this->CONFIG_PATH.'adminlte.php'), 'adminlte');
 
         $this->registerBladeExtensions();
     }
@@ -32,7 +35,7 @@ class ErrorsManagementProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Filesystem $filesystem)
     {
         $this->loadRoutes();
 
@@ -46,7 +49,7 @@ class ErrorsManagementProvider extends ServiceProvider
 
         $this->registerCommands();
 
-        $this->registerResources();
+        $this->registerResources($filesystem);
 
 //        $this->registerModels();
     }
@@ -145,30 +148,26 @@ class ErrorsManagementProvider extends ServiceProvider
      *
      * @return void
      */
-    public function registerResources()
+    public function registerResources($filesystem)
     {
         if ($this->isLumen() === false and function_exists('config_path')) { // function not available and 'publish' not relevant in Lumen
 
             $this->publishes(
-                [$this->packagePath($this->CONFIG_PATH.'errors_management.php') => config_path('record_errors.php')],
+                [
+                    $this->packagePath($this->CONFIG_PATH.'errors_management.php') => config_path('record_errors.php'),
+                    $this->packagePath($this->CONFIG_PATH.'adminlte.php')          => config_path('adminlte.php')
+                ],
                 'errors_management:config'
             );
 
             $timestamp = date('Y_m_d_His', time());
-
-            if (!class_exists('CreateRecordErrorsTable')) {
-                $this->publishes(
-                    [$this->packagePath($this->DATABASE_PATH.'migrations/create_record_errors_table.php.stub') => database_path("migrations/{$timestamp}_create_record_errors_table.php")],
-                    'errors_management:migrations'
-                );
-            }
-
-            if (!class_exists('CreateVisitsTable')) {
-                $this->publishes(
-                    [$this->packagePath($this->DATABASE_PATH.'migrations/create_visits_table.php.stub') => database_path("migrations/{$timestamp}_create_visits_table.php")],
-                    'errors_management:migrations'
-                );
-            }
+            $this->publishes(
+                [
+                    $this->packagePath($this->DATABASE_PATH.'migrations/create_record_errors_table.php.stub') => $this->getMigrationFileName($filesystem, 'create_record_errors_table.php'),
+                    $this->packagePath($this->DATABASE_PATH.'migrations/create_visits_table.php.stub')        => $this->getMigrationFileName($filesystem, 'create_visits_table.php')
+                ],
+                'errors_management:migrations'
+            );
 
             $this->publishes(
                 [
@@ -185,6 +184,31 @@ class ErrorsManagementProvider extends ServiceProvider
         }
     }
 
+
+    private function packagePath($path)
+    {
+        return __DIR__."/$path";
+    }
+
+
+    /**
+     * Returns existing migration file if found, else uses the current timestamp.
+     *
+     * @param Filesystem $filesystem
+     *
+     * @return string
+     */
+    protected function getMigrationFileName(Filesystem $filesystem, $fileName): string
+    {
+        $timestamp = date('Y_m_d_His');
+
+        return Collection::make($this->app->databasePath().DIRECTORY_SEPARATOR.'migrations'.DIRECTORY_SEPARATOR)
+            ->flatMap(function ($path) use ($filesystem, $fileName) {
+                return $filesystem->glob("{$path}*_{$fileName}");
+            })->push($this->app->databasePath()."/migrations/{$timestamp}_{$fileName}")
+            ->first();
+    }
+
     /**
      * Check if package is running under Lumen app.
      *
@@ -193,10 +217,5 @@ class ErrorsManagementProvider extends ServiceProvider
     protected function isLumen()
     {
         return Str::contains($this->app->version(), 'Lumen') === true;
-    }
-
-    private function packagePath($path)
-    {
-        return __DIR__."/$path";
     }
 }
