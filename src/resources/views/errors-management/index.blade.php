@@ -43,7 +43,7 @@
 @stop
 
 @section('js')
-    <script src="{{asset('js/global.js')}}"></script>
+    <script src="{{asset('vendor/errors-management/js/global.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
                 <?php $TrashParam = has_trash_param()?>
