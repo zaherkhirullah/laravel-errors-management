@@ -47,12 +47,14 @@ class LemController extends Controller
         if (!check_user_authorize($this->permissionName, $trash)) {
             return view('lem::errors.401');
         }
-        $user_can_delete = is_can_delete($this->permissionName);
-        $user_can_restore = is_can_restore($this->permissionName);
-        $user_can_force_delete = is_can_force_delete($this->permissionName);
         if (!$this->allowed_code($code)) {
             abort(404);
         }
+
+        $user_can_delete = is_can_delete($this->permissionName);
+        $user_can_restore = is_can_restore($this->permissionName);
+        $user_can_force_delete = is_can_force_delete($this->permissionName);
+
         if ($request->ajax()) {
             $rows = RecordError::Type($code)->with('visits')->withCount('visits');
             $rows = $trash ? $rows->onlyTrashed()->get() : $rows->get();
@@ -72,8 +74,7 @@ class LemController extends Controller
                 return "<p class='text-center align-middle'><span class='btn btn-sm btn-sm badge-warning'> <i class='fas fa-eye'></i> $row->visits_count  </span></p>";
             });
             $datatable->addColumn('last_visit', function ($row) {
-                $last_visit = $row->visits()->latest()->first();
-                $last_visit = optional($last_visit)->created_at;
+                $last_visit = $row->visits_count == 0 ? $row->created_at : optional($row->visits()->latest()->first())->created_at;
 
                 return "<p class='text-center align-middle'><span> $last_visit </span></p>";
             });
@@ -121,14 +122,15 @@ class LemController extends Controller
             return view('lem::errors.401');
         }
 
-        $user_can_delete = is_can_delete($this->permissionName);
-
         $record = RecordError::findOrFail($id);
+
         if (!$request->ajax()) {
             return view('lem::show', compact('code'))->with(['row' => $record]);
         }
 //            $rows = RecordError::where('link', $row->link)->where('id', '!=', $id);
         $rows = $record->visits;
+
+        $user_can_delete = is_can_delete($this->permissionName);
 
         return Datatables::of($rows)
             ->addColumn('link', function () use ($record) {
