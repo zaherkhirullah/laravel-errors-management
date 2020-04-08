@@ -1,10 +1,10 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement\Http\Controllers;
+namespace Hayrullah\Lem\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Exception;
-use Hayrullah\ErrorsManagement\Models\RecordError;
+use Hayrullah\Lem\Models\RecordError;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Yajra\DataTables\DataTables;
 
-class RecordErrorController extends Controller
+class LemController extends Controller
 {
 //    protected $permissionName = "error-records";
     protected $permissionName = '';
@@ -30,7 +30,7 @@ class RecordErrorController extends Controller
      */
     public function dashboard()
     {
-        return view('errors_management::dashboard');
+        return view('lem::dashboard');
     }
 
     /**
@@ -45,7 +45,7 @@ class RecordErrorController extends Controller
     public function index(Request $request, $code, $trash = '')
     {
         if (!check_user_authorize($this->permissionName, $trash)) {
-            return view('errors_management::errors.401');
+            return view('lem::errors.401');
         }
         $user_can_delete = is_can_delete($this->permissionName);
         $user_can_restore = is_can_restore($this->permissionName);
@@ -112,20 +112,20 @@ class RecordErrorController extends Controller
             return $datatable->make(true);
         }
 
-        return view('errors_management::index', compact('code'));
+        return view('lem::index', compact('code'));
     }
 
     public function show(Request $request, $code, $id)
     {
         if (!check_user_authorize($this->permissionName)) {
-            return view('RecordErrors::errors.401');
+            return view('lem::errors.401');
         }
 
         $user_can_delete = is_can_delete($this->permissionName);
 
         $record = RecordError::findOrFail($id);
         if (!$request->ajax()) {
-            return view('errors_management::show', compact('code'))->with(['row' => $record]);
+            return view('lem::show', compact('code'))->with(['row' => $record]);
         }
 //            $rows = RecordError::where('link', $row->link)->where('id', '!=', $id);
         $rows = $record->visits;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement\Commands;
+namespace Hayrullah\Lem\Commands;
 
 use Illuminate\Console\Command;
 
@@ -11,7 +11,7 @@ class CacheCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'cache:all';
+    protected $signature = 'lem:cache-all';
 
     /**
      * The console command description.
@@ -39,8 +39,7 @@ class CacheCommand extends Command
     {
         $this->call('config:cache');
         $this->call('event:cache');
-//        $this->call('route:cache');
-//        $this->call('route:trans:cache');
+        $this->call('route:cache');
         $this->call('view:cache');
     }
 }

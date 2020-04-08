@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement\Traits;
+namespace Hayrullah\Lem\Traits;
 
 use App\User;
 use Illuminate\Contracts\Routing\UrlGenerator;

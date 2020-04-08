@@ -1,9 +1,9 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement\Models;
+namespace Hayrullah\Lem\Models;
 
-use Hayrullah\ErrorsManagement\Traits\GlobalFunctions;
-use Hayrullah\ErrorsManagement\Traits\HasVisits;
+use Hayrullah\Lem\Traits\GlobalFunctions;
+use Hayrullah\Lem\Traits\HasVisits;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,7 +13,7 @@ class RecordError extends Model
     use SoftDeletes;
     use HasVisits;
 
-    protected $bPrefix = 'errors-management/records';
+    protected $bPrefix = 'lem/records';
 
     /**
      * @param $query

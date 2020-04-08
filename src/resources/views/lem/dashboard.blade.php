@@ -7,7 +7,7 @@
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/lem')}}"><i class="fas fa-tachometer-alt"></i> {{__('home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url('/lem')}}"><i class="fas fa-tachometer-alt"></i> {{__('lem::trans.home')}}</a></li>
     </ol>
 @stop
 
@@ -24,9 +24,9 @@
                   </span>
                     <div class="info-box-content">
                         <span class="info-box-text"><a href="{{route('lem.records',['code'=>$err['code']])}}">{{$err['code']}} Error Records</a></span>
-                        <span class="info-box-number"><i class="fas fa-fw fa-link"></i> {{Hayrullah\ErrorsManagement\Models\RecordError::Type($err['code'])->count()}}</span>
+                        <span class="info-box-number"><i class="fas fa-fw fa-link"></i> {{Hayrullah\Lem\Models\RecordError::Type($err['code'])->count()}}</span>
                         <span class="info-box-number"><i class="fas fa-fw fa-eye"></i> 0
-{{--                            {{ Hayrullah\ErrorsManagement\Models\ErrorsManagement::showVisits($err['code'])  }}--}}
+{{--                            {{ Hayrullah\Lem\Models\ErrorsManagement::showVisits($err['code'])  }}--}}
                         </span>
                     </div>
                     <!-- /.info-box-content -->

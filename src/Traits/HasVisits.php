@@ -1,8 +1,8 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement\Traits;
+namespace Hayrullah\Lem\Traits;
 
-use Hayrullah\ErrorsManagement\Models\Visit;
+use Hayrullah\Lem\Models\Visit;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 trait HasVisits

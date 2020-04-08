@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     //    'middleware' => $middleware,
     'prefix'    => 'lem',
-    'namespace' => 'Hayrullah\ErrorsManagement\Http\Controllers',
+    'namespace' => 'Hayrullah\Lem\Http\Controllers',
 ], function () {
     Route::get('/', 'RecordErrorController@dashboard')->name('lem.dashboard');
     Route::get('records/{code}', 'RecordErrorController@index')->name('lem.records');

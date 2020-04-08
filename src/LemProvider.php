@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement;
+namespace Hayrullah\Lem;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\View\Compilers\BladeCompiler;
 
-class ErrorsManagementProvider extends ServiceProvider
+class LemProvider extends ServiceProvider
 {
     protected $CONFIG_PATH = 'config/';
     protected $ROUTES_PATH = 'routes/';
@@ -189,7 +189,7 @@ class ErrorsManagementProvider extends ServiceProvider
             );
 
 //            $this->publishes(
-//                [__DIR__.'/ErrorsManagementProvider.php' => app_path('/Providers/ErrorsManagementProvider.php')],
+//                [__DIR__.'/lemProvider.php' => app_path('/Providers/lemProvider.php')],
 //                'providers'
 //            );
         }

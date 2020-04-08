@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement\Models;
+namespace Hayrullah\Lem\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayrullah\ErrorsManagement\Commands;
+namespace Hayrullah\Lem\Commands;
 
 use Illuminate\Console\Command;
 
@@ -11,7 +11,7 @@ class ClearCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'clear:all';
+    protected $signature = 'lem:clear-all';
 
     /**
      * The console command description.
@@ -41,8 +41,6 @@ class ClearCommand extends Command
         $this->call('config:clear');
         $this->call('event:clear');
         $this->call('route:clear');
-//        $this->call('geoip:clear');
-//        $this->call('route:trans:clear');
         $this->call('view:clear');
     }
 }

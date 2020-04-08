@@ -23,13 +23,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Hayrullah\\ErrorsManagement\\": "src/"
+      "Hayrullah\\Lem\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Hayrullah\\ErrorsManagement\\ErrorsManagementProvider"
+        "Hayrullah\\Lem\\LemProvider"
       ]
     }
   }
