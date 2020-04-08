@@ -7,13 +7,13 @@ Route::group([
     'prefix'    => 'lem',
     'namespace' => 'Hayrullah\Lem\Http\Controllers',
 ], function () {
-    Route::get('/', 'RecordErrorController@dashboard')->name('lem.dashboard');
-    Route::get('records/{code}', 'RecordErrorController@index')->name('lem.records');
-    Route::get('records/{code}/{id}', 'RecordErrorController@show')->name('lem.show');
+    Route::get('/', 'LemController@dashboard')->name('lem.dashboard');
+    Route::get('records/{code}', 'LemController@index')->name('lem.records');
+    Route::get('records/{code}/{id}', 'LemController@show')->name('lem.show');
     Route::prefix('ajax')->group(function () {
-        Route::post('record/{code}', 'RecordErrorController@store');
+        Route::post('record/{code}', 'LemController@store');
     });
     Route::prefix('example')->group(function () {
-        Route::get('{code}', 'RecordErrorController@example');
+        Route::get('{code}', 'LemController@example');
     });
 });

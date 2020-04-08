@@ -31,10 +31,9 @@ class RecordError extends Model
      *
      * @return string
      */
-    public static function showVisits($code = 404)
+    public function showVisits($code = 404)
     {
-        $typeVisits = self::Type($code)->visits();
-        $visits = count($typeVisits);
+        $visits = count($this->type($code)->visits);
 
         return displayVisitsCount($visits);
     }

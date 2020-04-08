@@ -25,9 +25,11 @@
                     <div class="info-box-content">
                         <span class="info-box-text"><a href="{{route('lem.records',['code'=>$err['code']])}}">{{$err['code']}} Error Records</a></span>
                         <span class="info-box-number"><i class="fas fa-fw fa-link"></i> {{Hayrullah\Lem\Models\RecordError::Type($err['code'])->count()}}</span>
-                        <span class="info-box-number"><i class="fas fa-fw fa-eye"></i> 0
-{{--                            {{ Hayrullah\Lem\Models\ErrorsManagement::showVisits($err['code'])  }}--}}
-                        </span>
+{{--                        <span class="info-box-number"><i class="fas fa-fw fa-eye"></i> 0--}}
+{{--                            {{ $recordErrors = new Hayrullah\Lem\Models\RecordError();--}}
+{{--                                $recordErrors->showVisits($err['code']);--}}
+{{--                              }}--}}
+{{--                        </span>--}}
                     </div>
                     <!-- /.info-box-content -->
                 </div>
