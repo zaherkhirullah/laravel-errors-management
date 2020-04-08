@@ -1,5 +1,5 @@
 {
-  "name": "hayrullah/laravel-errors-management",
+  "name": "hayrullah/lem",
   "description": "404/500 Error record links and management Errors",
   "type": "library",
   "license": "MIT",
