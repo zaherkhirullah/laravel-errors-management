@@ -227,3 +227,30 @@ if (!function_exists('uploadFromTiny')) {
         }
     }
 }
+/*---------------------------------- </> ----------------------------------*/
+
+if (!function_exists('fancyImage')) {
+    /**
+     * @param        $prefix
+     * @param        $imageName
+     * @param int    $width
+     * @param null   $alt
+     * @param null   $className
+     *
+     * @return string
+     */
+    function fancyImage($prefix, $imageName, $width = 100, $alt = null, $className = null)
+    {
+        $className = $className != null ? $className : 'img-thumbnail';
+        $height = $className == 'img-circle' ? $width : 'auto';
+        if (!file_exists((public_path("{$prefix}/{$imageName}")))) {
+            return '';
+        }
+        $output = "<a class='grouped_elements' data-fancybox='group' data-caption='{$imageName}' href='/{$prefix}/{$imageName}'>";
+        $output .= "<img src='/{$prefix}/{$imageName}' class='{$className}' width='{$width}' height='{$height}' alt='{$alt}'/>";
+        $output .= '</a>';
+
+        return $output;
+    }
+}
+/*---------------------------------- </> ----------------------------------*/

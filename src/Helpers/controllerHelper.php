@@ -21,6 +21,7 @@ if (!function_exists('get_auth_user')) {
     }
 }
 /*---------------------------------- </> --------------------------------*/
+
 if (!function_exists('user_avatar')) {
     /**
      * @param null $user
@@ -638,6 +639,7 @@ if (!function_exists('copyBtn')) {
             <img src='".asset('img/clippy.svg')." ' width='17px' alt='".__('copy_to_clipboard')."'></button>";
     }
 }/*---------------------------------- </> --------------------------------*/
+/*---------------------------------- </> --------------------------------*/
 
 if (!function_exists('backButton')) {
     /**
@@ -710,6 +712,7 @@ if (!function_exists('list_of_error_codes')) {
     }
 }
 /*---------------------------------- </> --------------------------------*/
+
 if (!function_exists('list_of_menu_error_items')) {
     function list_of_menu_error_items()
     {
@@ -727,8 +730,6 @@ if (!function_exists('list_of_menu_error_items')) {
         return $items;
     }
 }
-
-//
 /*---------------------------------- </> --------------------------------*/
 
 if (!function_exists('displayVisitsCount')) {
@@ -748,4 +749,4 @@ if (!function_exists('displayVisitsCount')) {
         //if you want 2 decimal digits
     }
 }
-/*==============================-{</>}-=============================*/
+/*---------------------------------- </> --------------------------------*/
